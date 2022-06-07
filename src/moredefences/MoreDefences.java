@@ -9,6 +9,9 @@ import mindustry.gen.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 
+import moredefences.content.blocks.*;
+import moredefences.content.bullets.*;
+
 public class MoreDefences extends Mod{
 
     public MoreDefences(){
