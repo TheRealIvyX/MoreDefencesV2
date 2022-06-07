@@ -48,7 +48,7 @@ public class MDBlocks{
             size = 1;
             //hideDetails = false;
             health = 200;
-            reloadTime = 60f;
+            reload = 60f;
             inaccuracy = 3f;
             range = 100f;
             rotateSpeed = 5f;
