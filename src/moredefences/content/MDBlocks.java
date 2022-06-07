@@ -23,6 +23,8 @@ import mindustry.world.blocks.units.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 
+import moredefences.content.bullets.*;
+
 import static mindustry.Vars.*;
 import static mindustry.type.ItemStack.*;
 
@@ -45,15 +47,13 @@ public class MDBlocks{
             );
             size = 1;
             //hideDetails = false;
-            scaledHealth = 200;
-            reload = 60f;
+            health = 200;
+            reloadTime = 60f;
             inaccuracy = 3f;
             range = 100f;
             rotateSpeed = 5f;
-            shots = 8f;
+            shots = 8;
             spread = 1f;
-            range = 544f;
-            rotateSpeed = 2.5f;
             //shootSound = Sounds.railgun;
             //coolant = consumeCoolant(0.2f);
         }};
