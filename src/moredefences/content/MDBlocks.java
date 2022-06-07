@@ -38,26 +38,26 @@ public class MDBlocks{
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
+            requirements(Category.turret, with(
+                Items.copper, 60,
+                Items.lead, 20
+            ));
             size = 1;
             //hideDetails = false;
             health = 200;
-            reload = 60f;
+            reload = 60;
             inaccuracy = 3f;
             range = 100f;
             rotateSpeed = 5f;
             shots = 8;
             spread = 1f;
             //shootSound = Sounds.railgun;
+            //coolant = consumeCoolant(0.2f);
             ammo(
                 Items.lead, MDBullets.multishotLead,
                 Items.coal, MDBullets.multishotCoal,
                 Items.silicon, MDBullets.multishotSili
             );
-            //coolant = consumeCoolant(0.2f);
-            requirements(Category.turret, with(
-                Items.copper, 60,
-                Items.lead, 20
-            ));
         }};
     }
 }
