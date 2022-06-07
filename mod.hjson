@@ -8,7 +8,7 @@ name: "more-defences-ivyx"
 author: "IvyX"
 
 #the fully qualified main class of the mod
-main: "ivyx.MoreDefences"
+main: "moredefences.MoreDefences"
 
 #the mod description as seen in the mod dialog
 description: "A Java rewrite of MoreDefences, a mod made by IvyX and 7rodo that adds new turrets and walls to defend your core.\nProbably does not work on mobile.\nDiscord server invite: https://discord.gg/eEtw5GF2dk.[]"
