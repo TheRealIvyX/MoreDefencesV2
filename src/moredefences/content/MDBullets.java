@@ -21,7 +21,7 @@ public class MDBullets{
         }};
         multishotCoal = new BasicBulletType(3f, 6f){{ // speed, dmg
             ammoMultiplier = 1f;
-            incendAmount = 0.3f;
+            incendAmount = 0.3;
             incendSpread = 0.5f;
             incendChance = 0.9f;
         }};
