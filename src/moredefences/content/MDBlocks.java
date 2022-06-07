@@ -55,7 +55,7 @@ public class MDBlocks{
             shots = 8;
             spread = 1f;
             //shootSound = Sounds.railgun;
-            //coolant = consumeCoolant(0.2f);
+            coolant = consumeCoolant(0.2f);
         }};
     }
 }
