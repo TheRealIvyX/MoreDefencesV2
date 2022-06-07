@@ -1,4 +1,4 @@
-package example;
+package moredefences;
 
 import arc.*;
 import arc.util.*;
@@ -9,9 +9,9 @@ import mindustry.gen.*;
 import mindustry.mod.*;
 import mindustry.ui.dialogs.*;
 
-public class ExampleJavaMod extends Mod{
+public class MoreDefences extends Mod{
 
-    public ExampleJavaMod(){
+    public MoreDefences(){
         Log.info("Loaded ExampleJavaMod constructor.");
 
         //listen for game load event
