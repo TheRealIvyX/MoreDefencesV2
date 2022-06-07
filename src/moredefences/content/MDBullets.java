@@ -21,7 +21,7 @@ public class MDBullets{
         }};
         multishotCoal = new BasicBulletType(3f, 6f){{ // speed, dmg
             ammoMultiplier = 1f;
-            incendAmount = 0.3;
+            incendAmount = 1; // why the fuck can i not use doubles or floats for this shit, only integers
             incendSpread = 0.5f;
             incendChance = 0.9f;
         }};
