@@ -30,7 +30,14 @@ public class MoreDefences extends Mod{
 
     @Override
     public void loadContent(){
-        Log.info("Loading some example content.");
+        MDBullets.load();
+        //MDStatuses.load();
+        //MDLiquids.load();
+        //MDUnits.load();
+        //MDItems.load();
+        //MDPlanets.load();
+        MDBlocks.load();
+        //MDTechTree.load();
     }
 
 }
