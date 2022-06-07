@@ -1,23 +1,23 @@
 #the mod name as displayed in-game
-displayName: "Java Mod Template"
+displayName: "[cyan]More[blue]Defences [red]V2[]"
 
 #the internal name of your mod
-name: "example-java-mod"
+name: "more-defences-ivyx"
 
 #your name
-author: "You"
+author: "IvyX"
 
 #the fully qualified main class of the mod
-main: "example.ExampleJavaMod"
+main: "ivyx.MoreDefences"
 
 #the mod description as seen in the mod dialog
-description: "A Mindustry Java mod template."
+description: "A Java rewrite of MoreDefences, a mod made by IvyX and 7rodo that adds new turrets and walls to defend your core.\nProbably does not work on mobile.\nDiscord server invite: https://discord.gg/eEtw5GF2dk.[]"
 
 #the mod version
-version: 1.0
+version: 2.0
 
 #the minimum game build required to run this mod
-minGameVersion: 129
+minGameVersion: 136
 
 #this is a java mod
 java: true
