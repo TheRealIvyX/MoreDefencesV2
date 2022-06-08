@@ -49,7 +49,7 @@ public class MDBlocks{
             inaccuracy = 3f;
             range = 100f;
             rotateSpeed = 5f;
-            shoot = new ShootSpread(8, 1f)
+            shoot = new ShootSpread(8, 1f);
             //shootSound = Sounds.railgun;
             //coolant = consumeCoolant(0.2f);
             ammo(
