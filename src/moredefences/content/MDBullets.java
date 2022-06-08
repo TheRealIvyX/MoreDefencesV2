@@ -11,7 +11,7 @@ public class MDBullets{
     public static BulletType
 
     // turret projectiles
-    multishotLead, multishotCoal, multishotSili, /*2-3*/ beehiveLead;
+    multishotLead, multishotCoal, multishotSili, /*2-3*/ beehiveLead, bubblerWater;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
@@ -26,6 +26,7 @@ public class MDBullets{
         multishotSili = new BasicBulletType(2f, 8f){{ // speed, dmg
             ammoMultiplier = 2f;
             homingPower = 1f;
+            lifetime = 70f;
         }};
         
         // 2-3
@@ -43,6 +44,35 @@ public class MDBullets{
             height = 4f;
             collidesAir = false;
             sprite = "moredefences-striped-bullet";
+        }};
+        
+        bubblerWater = new LiquidBulletType(Liquids.water){{ // liquid
+            damage = 0.5f;
+            status = StatusEffects.wet;
+            lifetime = 420f;
+            pierce = true;
+            drag = 0.025f;
+        }};
+        bubblerSlag = new LiquidBulletType(Liquids.slag){{ // liquid
+            damage = 1.6f;
+            status = StatusEffects.melting;
+            lifetime = 180f;
+            pierce = true;
+            drag = 0.025f;
+        }};
+        bubblerOil = new LiquidBulletType(Liquids.oil){{ // liquid
+            damage = 1.2f;
+            status = StatusEffects.tarred;
+            lifetime = 240f;
+            pierce = true;
+            drag = 0.025f;
+        }};
+        bubblerCryo = new LiquidBulletType(Liquids.cryofluid){{ // liquid
+            damage = 0.25f;
+            status = StatusEffects.freezing;
+            lifetime = 240f;
+            pierce = true;
+            drag = 0.025f;
         }};
     }
 }
