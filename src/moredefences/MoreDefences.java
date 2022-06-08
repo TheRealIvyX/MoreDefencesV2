@@ -15,7 +15,7 @@ import moredefences.content.bullets.*;
 public class MoreDefences extends Mod{
 
     public MoreDefences(){
-        Log.info("Loaded ExampleJavaMod constructor.");
+        Log.info("hello from moredefences.");
 
         //listen for game load event
         Events.on(ClientLoadEvent.class, e -> {
@@ -33,13 +33,14 @@ public class MoreDefences extends Mod{
 
     @Override
     public void loadContent(){
-        MDBullets.load();
         //MDStatuses.load();
         //MDLiquids.load();
-        //MDUnits.load();
         //MDItems.load();
-        //MDPlanets.load();
+        MDBullets.load();
+        //MDUnits.load();
         MDBlocks.load();
+        //MDSectors.load();
+        //MDPlanets.load();
         //MDTechTree.load();
     }
 
