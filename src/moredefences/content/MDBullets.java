@@ -42,7 +42,7 @@ public class MDBullets{
             width = 3f;
             height = 4f;
             collidesAir = false;
-            sprite = "more-defences-ivyx-striped-bullet";
+            sprite = "moredefences-striped-bullet";
         }};
     }
 }
