@@ -43,7 +43,7 @@ public class MoreDefences extends Mod{
     @Override
     public void init(){ // code "borrowed" from progression ministry (good mod btw)
         if(!headless){ // btw can someone please explain to me what the fuck generics are
-            LoadedMod md = mods.locateMod("more-defences-ivyx");
+            LoadedMod md = mods.locateMod("moredefences");
             md.meta.displayName = "[cyan]More[blue]Defences [red]V2[]";
             md.meta.author = "[cyan]" + md.meta.author;
         }
