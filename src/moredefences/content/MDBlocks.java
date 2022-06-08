@@ -57,6 +57,7 @@ public class MDBlocks{
                 Items.coal, MDBullets.multishotCoal,
                 Items.silicon, MDBullets.multishotSili
             );
+            coolant = consumeCoolant(0.2f);
         }};
         // twothreecannon
         beehive = new ItemTurret("beehive"){{
@@ -79,7 +80,7 @@ public class MDBlocks{
             ammo(
                 Items.lead, MDBullets.beehiveLead
             );
-            coolant = consumeCoolant(0.8f);
+            coolant = consumeCoolant(0.2f*0.8f);
         }};
     }
 }
