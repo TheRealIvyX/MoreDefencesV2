@@ -73,8 +73,8 @@ public class MDBlocks{
             range = 100f;
             rotateSpeed = 2.5f;
             targetAir = false;
-            maxAmmo = 60f;
-            ejectEffect = Fx.shellEjectSmall;
+            maxAmmo = 60;
+            //ejectEffect = Fx.shellEjectSmall;
             shoot = new ShootSpread(3, 15f);
             ammo(
                 Items.lead, MDBullets.beehiveLead
