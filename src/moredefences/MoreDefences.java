@@ -10,8 +10,12 @@ import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
 import mindustry.mod.Mods.*;
+import mindustry.ui.dialogs.*;
 import mindustry.ui.dialogs.SettingsMenuDialog.*;
 import mindustry.ui.dialogs.SettingsMenuDialog.SettingsTable.*;
+
+import static arc.Core.*;
+import static mindustry.Vars.*;
 
 import moredefences.content.blocks.*;
 import moredefences.content.bullets.*;
