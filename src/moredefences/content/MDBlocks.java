@@ -26,6 +26,7 @@ import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 
 import moredefences.content.bullets.*;
+import moredefences.content.items.*;
 
 import static mindustry.Vars.*;
 import static mindustry.type.ItemStack.*;
