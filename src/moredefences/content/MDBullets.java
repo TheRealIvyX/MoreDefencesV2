@@ -11,7 +11,7 @@ public class MDBullets{
     public static BulletType
 
     // turret projectiles
-    multishotLead, multishotCoal, multishotSili, /*2-3*/ beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin;
+    multishotLead, multishotCoal, multishotSili, /*2-3*/ beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin, carbineAluminum;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
