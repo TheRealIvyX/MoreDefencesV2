@@ -34,7 +34,7 @@ public class MDBlocks{
     public static Block
 
     // turrets
-    multishot, /*twothreecannon,*/ beehive;
+    multishot, /*twothreecannon,*/ beehive, bubbler;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -47,7 +47,7 @@ public class MDBlocks{
             health = 200;
             reload = 60;
             inaccuracy = 3f;
-            range = 100f;
+            range = 120f;
             rotateSpeed = 5f;
             shoot = new ShootSpread(8, 1f);
             //shootSound = Sounds.railgun;
@@ -71,7 +71,7 @@ public class MDBlocks{
             health = 540;
             reload = 10;
             inaccuracy = 0.5f;
-            range = 100f;
+            range = 160f;
             rotateSpeed = 2.5f;
             targetAir = false;
             maxAmmo = 60;
@@ -81,6 +81,27 @@ public class MDBlocks{
                 Items.lead, MDBullets.beehiveLead
             );
             coolant = consumeCoolant(0.2f*0.8f);
+        }};
+        bubbler = new LiquidTurret("bubbler"){{
+            requirements(Category.turret, with(
+                Items.lead, 125,
+                Items.titanium, 25,
+                Items.metaglass, 75
+            ));
+            size = 2;
+            health = 600;
+            reload = 3;
+            inaccuracy = 45f;
+            range = 200f;
+            rotateSpeed = 5f;
+            //ejectEffect = Fx.shellEjectSmall;
+            shoot = new ShootSpread(8, 45f);
+            ammo(
+                Liquids.water, MDBullets.bubblerWater,
+                Liquids.slag, MDBullets.bubblerSlag,
+                Liquids.oil, MDBullets.bubblerOil,
+                Liquids.cryofluid, MDBullets.bubblerCryo
+            );
         }};
     }
 }
