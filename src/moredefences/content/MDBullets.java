@@ -11,7 +11,7 @@ public class MDBullets{
     public static BulletType
 
     // turret projectiles
-    multishotLead, multishotCoal, multishotSili;
+    multishotLead, multishotCoal, multishotSili, /*2-3*/ beehiveLead;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
@@ -26,6 +26,23 @@ public class MDBullets{
         multishotSili = new BasicBulletType(2f, 8f){{ // speed, dmg
             ammoMultiplier = 2f;
             homingPower = 1f;
+        }};
+        
+        // 2-3
+        
+        beehiveLead = new BasicBulletType(4.5f, 8f){{ // speed, dmg
+            ammoMultiplier = 2f;
+            homingPower = 1f;
+            pierce = true;
+            lifetime = 120f;
+            homingPower = 0.075f;
+            homingRange = 80f;
+            frontColor = Color.valueOf("ffff00");
+            backColor = Color.valueOf("000000");
+            bulletWidth = 3f;
+            bulletHeight = 4f;
+            collidesAir = false;
+            sprite = "more-defences-ivyx-striped-bullet";
         }};
     }
 }
