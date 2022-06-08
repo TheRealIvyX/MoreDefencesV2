@@ -34,7 +34,7 @@ public class MDBlocks{
     public static Block
 
     // turrets
-    multishot;
+    multishot, /*twothreecannon,*/ beehive;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -57,6 +57,29 @@ public class MDBlocks{
                 Items.coal, MDBullets.multishotCoal,
                 Items.silicon, MDBullets.multishotSili
             );
+        }};
+        // twothreecannon
+        beehive = new ItemTurret("beehive"){{
+            requirements(Category.turret, with(
+                Items.copper, 95,
+                Items.lead, 110,
+                Items.graphite, 45,
+                Items.titanium, 50
+            ));
+            size = 2;
+            health = 540;
+            reload = 10;
+            inaccuracy = 0.5f;
+            range = 100f;
+            rotateSpeed = 2.5f;
+            targetAir = false;
+            maxAmmo = 60f;
+            ejectEffect = Fx.shellEjectSmall;
+            shoot = new ShootSpread(3, 15f);
+            ammo(
+                Items.lead, MDBullets.beehiveLead
+            );
+            coolant = consumeCoolant(0.8f);
         }};
     }
 }
