@@ -11,7 +11,7 @@ public class MDBullets{
     public static BulletType
 
     // turret projectiles
-    multishotLead, multishotCoal, multishotSili, /*2-3*/ beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo;
+    multishotLead, multishotCoal, multishotSili, /*2-3*/ beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
@@ -73,6 +73,24 @@ public class MDBullets{
             lifetime = 240f;
             pierce = true;
             drag = 0.025f;
+        }};
+        
+        carbineTin = new LaserBoltBulletType(6f, 30f){{ // speed, dmg
+            ammoMultiplier = 2f;
+            lifetime = 30f;
+            reloadMultiplier = 2.15f;
+            width = 3f;
+            height = 13f;
+            frontColor = Color.valueOf("ffffff");
+            backColor = Color.valueOf("333333");
+        }};
+        carbineAluminum = new LaserBoltBulletType(9f, 60f){{ // speed, dmg
+            ammoMultiplier = 5f;
+            lifetime = 20f;
+            width = 5f;
+            height = 14f;
+            frontColor = Color.valueOf("ffffff");
+            backColor = Color.valueOf("69deca");
         }};
     }
 }
