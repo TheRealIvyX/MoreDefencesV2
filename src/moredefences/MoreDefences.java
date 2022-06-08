@@ -17,8 +17,9 @@ import mindustry.ui.dialogs.SettingsMenuDialog.SettingsTable.*;
 import static arc.Core.*;
 import static mindustry.Vars.*;
 
-import moredefences.content.blocks.*;
+import moredefences.content.items.*;
 import moredefences.content.bullets.*;
+import moredefences.content.blocks.*;
 
 public class MoreDefences extends Mod{
 
@@ -52,7 +53,7 @@ public class MoreDefences extends Mod{
     public void loadContent(){
         //MDStatuses.load();
         //MDLiquids.load();
-        //MDItems.load();
+        MDItems.load();
         MDBullets.load();
         //MDUnits.load();
         MDBlocks.load();
