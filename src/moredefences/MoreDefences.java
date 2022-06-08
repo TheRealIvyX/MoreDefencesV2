@@ -1,13 +1,17 @@
 package moredefences;
 
 import arc.*;
+import arc.func.*;
+import arc.graphics.g2d.*;
+import arc.scene.ui.*;
 import arc.util.*;
-import mindustry.*;
-import mindustry.content.*;
 import mindustry.game.EventType.*;
+import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.mod.*;
-import mindustry.ui.dialogs.*;
+import mindustry.mod.Mods.*;
+import mindustry.ui.dialogs.SettingsMenuDialog.*;
+import mindustry.ui.dialogs.SettingsMenuDialog.SettingsTable.*;
 
 import moredefences.content.blocks.*;
 import moredefences.content.bullets.*;
