@@ -34,7 +34,7 @@ public class MDBlocks{
     public static Block
 
     // turrets
-    multishot, /*twothreecannon,*/ beehive, bubbler;
+    multishot, /*twothreecannon,*/ beehive, bubbler, carbine;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -102,6 +102,28 @@ public class MDBlocks{
                 Liquids.oil, MDBullets.bubblerOil,
                 Liquids.cryofluid, MDBullets.bubblerCryo
             );
+        }};
+        carbine = new ItemTurret("carbine"){{
+            requirements(Category.turret, with(
+                MDItems.aluminum, 20,
+                MDItems.cobalt, 85,
+                Items.silicon, 45
+            ));
+            size = 2;
+            health = 620;
+            reload = 75;
+            inaccuracy = 0f;
+            range = 180f;
+            rotateSpeed = 4f;
+            maxAmmo = 50;
+            recoil = 5f;
+            shootSound = Sounds.snap;
+            //ejectEffect = Fx.shellEjectSmall;
+            ammo(
+                MDItems.tin, MDBullets.carbineTin,
+                MDItems.aluminum, MDBullets.carbineAluminum
+            );
+            coolant = consumeCoolant(0.2f);
         }};
     }
 }
