@@ -118,7 +118,7 @@ public class MDBlocks{
             rotateSpeed = 4f;
             maxAmmo = 50;
             recoil = 5f;
-            shootSound = Sounds.snap;
+            shootSound = Sounds.shootSnap;
             //ejectEffect = Fx.shellEjectSmall;
             ammo(
                 MDItems.tin, MDBullets.carbineTin,
