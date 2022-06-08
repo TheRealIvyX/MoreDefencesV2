@@ -39,8 +39,8 @@ public class MDBullets{
             homingRange = 80f;
             frontColor = Color.valueOf("ffff00");
             backColor = Color.valueOf("000000");
-            bulletWidth = 3f;
-            bulletHeight = 4f;
+            width = 3f;
+            height = 4f;
             collidesAir = false;
             sprite = "more-defences-ivyx-striped-bullet";
         }};
