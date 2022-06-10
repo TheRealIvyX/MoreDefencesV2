@@ -181,7 +181,7 @@ public class MDBullets{
             pierce = true;
             pierceCap = 4;
             knockback = 2f;
-            ammoMultiplier = 0.0125f;
+            //ammoMultiplier = 0.0125f;
             statusDuration = 360f;
             puddleSize = 3f;
             speed = 7f;
