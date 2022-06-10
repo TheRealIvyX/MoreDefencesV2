@@ -35,7 +35,7 @@ public class MDBlocks{
     public static Block
 
     // turrets
-    multishot, beehive, bubbler, carbine, cluster;
+    multishot, beehive, bubbler, carbine, cluster, coilgun;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -60,7 +60,6 @@ public class MDBlocks{
             );
             coolant = consumeCoolant(0.2f);
         }};
-        // twothreecannon
         beehive = new ItemTurret("beehive"){{
             requirements(Category.turret, with(
                 Items.copper, 95,
@@ -158,6 +157,29 @@ public class MDBlocks{
             );
             coolant = consumeCoolant(0.2f);
             coolantMultiplier = 0.5f;
+        }};
+        coilgun = new ItemTurret("coilgun"){{ // coligun
+            requirements(Category.turret, with(
+                Items.copper, 120,
+                Items.lead, 120,
+                MDItems.nickel, 80
+            ));
+            size = 3;
+            health = 1120;
+            reload = 100;
+            inaccuracy = 0f;
+            range = 360f;
+            rotateSpeed = 10f;
+            recoil = 3f;
+            shootSound = Sounds./*[[*/bigshot/*]]*/;
+            ammoPerShot = 20;
+            maxAmmo = 40;
+            targetAir = false;
+            ammo(
+                MDItems.nickel, MDBullets.coilgunNickel
+            );
+            coolant = consumeCoolant(0.2f);
+            coolantMultiplier = 0.8f;
         }};
     }
 }
