@@ -12,7 +12,7 @@ public class MDBullets{
 
     // turret projectiles
     multishotLead, multishotCoal, multishotSili, beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin, carbineAluminum,
-    clusterPyra, clusterBlast, clusterPlast, clusterSurge, coilgunNickel;
+    clusterPyra, clusterBlast, clusterPlast, clusterSurge, coilgunNickel, firenadoSlag;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
@@ -173,6 +173,18 @@ public class MDBullets{
             height = 15;
             hitSound = Sounds.explosionbig;
             hitShake = 2f;
+        }};
+        
+        firenadoSlag = new LiquidBulletType(Liquids.slag){{ // liquid
+            damage = 20f;
+            status = StatusEffects.melting;
+            pierce = true;
+            pierceCap = 4;
+            knockback = 2f;
+            ammoMultiplier = 0.0125f;
+            statusDuration = 360f;
+            puddleSize = 3f;
+            speed = 7f;
         }};
     }
 }
