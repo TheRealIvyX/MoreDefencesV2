@@ -202,7 +202,9 @@ public class MDBlocks{
             shootEffect = Fx.shootLiquid;
             ammoPerShot = 15;
             maxAmmo = 90;
-            shootCone = 45;
+            shootCone = 45f;
+            shoot = new ShootSpread(180, 0f);
+            liquidCapacity = 90f;
             ammo(
                 Liquids.slag, MDBullets.firenadoSlag
             );
