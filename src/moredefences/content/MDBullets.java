@@ -12,7 +12,7 @@ public class MDBullets{
 
     // turret projectiles
     multishotLead, multishotCoal, multishotSili, beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin, carbineAluminum,
-    clusterPyra, clusterBlast, clusterPlast, clusterSurge;
+    clusterPyra, clusterBlast, clusterPlast, clusterSurge, coilgunZinc;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
@@ -160,6 +160,19 @@ public class MDBullets{
             backColor = Color.valueOf("F3E979");
             lightning = 2;
             lightningLength = 7;
+        }};
+        
+        coilgunZinc = new BasicBulletType(15f, 450f){{ // speed, dmg
+            ammoMultiplier = 1f; 
+            splashDamage = 350f;
+            splashDamageRadius = 16f;
+            frontColor = Color.valueOf("ffffff");
+            backColor = Color.valueOf("d1f1ff");
+            collidesAir = false;
+            width = 2;
+            length = 15;
+            hitSound = Sounds.explosionBig;
+            hitShake = 2f;
         }};
     }
 }
