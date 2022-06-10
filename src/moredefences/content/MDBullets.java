@@ -12,7 +12,7 @@ public class MDBullets{
 
     // turret projectiles
     multishotLead, multishotCoal, multishotSili, beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin, carbineAluminum,
-    clusterPyra, clusterBlast, clusterPlast, clusterSurge, coilgunZinc;
+    clusterPyra, clusterBlast, clusterPlast, clusterSurge, coilgunNickel;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
@@ -162,7 +162,7 @@ public class MDBullets{
             lightningLength = 7;
         }};
         
-        coilgunZinc = new BasicBulletType(15f, 450f){{ // speed, dmg
+        coilgunNickel = new BasicBulletType(15f, 450f){{ // speed, dmg
             ammoMultiplier = 1f; 
             splashDamage = 350f;
             splashDamageRadius = 16f;
