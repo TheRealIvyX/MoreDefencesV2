@@ -35,7 +35,7 @@ public class MDBlocks{
     public static Block
 
     // turrets
-    multishot, beehive, bubbler, carbine, cluster, coilgun;
+    multishot, beehive, bubbler, carbine, cluster, coilgun, firenado;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -180,6 +180,32 @@ public class MDBlocks{
             );
             coolant = consumeCoolant(0.2f);
             coolantMultiplier = 0.8f;
+        }};
+        firenado = new LiquidTurret("firenado"){{
+            requirements(Category.turret, with(
+                //MDItems.bronze, 500,
+                MDItems.aluminum, 500, //300
+                MDItems.cobalt, 230,
+                MDItems.radiode, 200,
+                Items.thorium, 170,
+                Items.surgeAlloy, 150
+            ));
+            size = 4;
+            health = 2400;
+            reload = 100;
+            inaccuracy = 25f;
+            range = 260f;
+            rotateSpeed = 10f;
+            recoil = 5f;
+            velocityRnd = 0.9f;
+            shootSound = Sounds.splash;
+            shootEffect = Fx.shootLiquid;
+            ammoPerShot = 15;
+            maxAmmo = 90;
+            shootCone = 45;
+            ammo(
+                Liquids.slag, MDBullets.firenadoSlag
+            );
         }};
     }
 }
