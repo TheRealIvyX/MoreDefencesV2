@@ -142,9 +142,10 @@ public class MDBlocks{
             rotateSpeed = 4f;
             recoil = 6f;
             shootSound = Sounds.artillery;
-            ejectEffect = Fx.casing3Double;
-            velocityInaccuracy = 0.3f;
-            shake = 2f;
+            ammoUseEffect = Fx.casing3Double;
+            velocityRnd = 0.3f;
+            ammoPerShot = 5;
+            shake = 3.25f;
             cooldownTime = 0.03f;
             ammoEjectBack = 5;
             targetAir = false;
