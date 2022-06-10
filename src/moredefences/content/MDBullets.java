@@ -170,8 +170,8 @@ public class MDBullets{
             backColor = Color.valueOf("d1f1ff");
             collidesAir = false;
             width = 2;
-            length = 15;
-            hitSound = Sounds.explosionBig;
+            height = 15;
+            hitSound = Sounds.explosionbig;
             hitShake = 2f;
         }};
     }
