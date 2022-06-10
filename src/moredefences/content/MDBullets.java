@@ -11,7 +11,8 @@ public class MDBullets{
     public static BulletType
 
     // turret projectiles
-    multishotLead, multishotCoal, multishotSili, /*2-3*/ beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin, carbineAluminum;
+    multishotLead, multishotCoal, multishotSili, beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin, carbineAluminum,
+    clusterPyra, clusterBlast, clusterPlast, clusterSurge;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
@@ -28,8 +29,6 @@ public class MDBullets{
             homingPower = 1f;
             lifetime = 70f;
         }};
-        
-        // 2-3
         
         beehiveLead = new BasicBulletType(4.5f, 8f){{ // speed, dmg
             ammoMultiplier = 2f;
@@ -91,6 +90,76 @@ public class MDBullets{
             height = 14f;
             frontColor = Color.valueOf("ffffff");
             backColor = Color.valueOf("69deca");
+        }};
+        
+        clusterPyra = new ArtilleryBulletType(5f, 0f){{ // speed, dmg
+            ammoMultiplier = 2f;
+            hitEffect = Fx.blastExplosion;
+            knockback = 0.8f;
+            lifetime = 120f;
+            width = 13f;
+            height = 13f;
+            collidesTiles = false;
+            splashDamageRadius = 25f;
+            splashDamage = 35f;
+            status = StatusEffects.burning;
+            frontColor = Color.valueOf("e89c46");
+            backColor = Color.valueOf("ff8700");
+            trailEffect = Fx.incendTrail;
+        }};
+        clusterBlast = new ArtilleryBulletType(5f, 0f){{ // speed, dmg
+            ammoMultiplier = 4f;
+            hitEffect = Fx.blastExplosion;
+            knockback = 0.8f;
+            lifetime = 110f;
+            width = 14f;
+            height = 14f;
+            collidesTiles = false;
+            splashDamageRadius = 45f;
+            splashDamage = 45f;
+            status = StatusEffects.blasted;
+            frontColor = Color.valueOf("e85e46");
+            backColor = Color.valueOf("ffdfd1");
+        }};
+        clusterPlast = new ArtilleryBulletType(5f, 0f){{ // speed, dmg
+            ammoMultiplier = 2f;
+            hitEffect = Fx.plasticExplosion;
+            knockback = 1f;
+            lifetime = 120f;
+            width = 13f;
+            height = 13f;
+            collidesTiles = false;
+            splashDamageRadius = 35f;
+            splashDamage = 40f;
+            frontColor = Color.valueOf("ffffff");
+            backColor = Color.valueOf("8cff00");
+            fragBullet = new BasicBulletType(2.5f, 10, "bullet"){{ // fun fact: this is literally just artilleryPlasticFrag from before it got banished in b136
+                width = 10f;
+                height = 12f;
+                shrinkY = 1f;
+                lifetime = 15f;
+                backColor = Pal.plastaniumBack;
+                frontColor = Pal.plastaniumFront;
+                despawnEffect = Fx.none;
+                collidesAir = false;
+            }};
+            fragBullets = 12;
+        }};
+        clusterSurge = new ArtilleryBulletType(6f, 0f){{ // speed, dmg
+            ammoMultiplier = 2f;
+            hitEffect = Fx.blastExplosion;
+            knockback = 1f;
+            lifetime = 100f;
+            width = 15f;
+            height = 15f;
+            collidesTiles = false;
+            splashDamageRadius = 45f;
+            splashDamage = 55f;
+            status = StatusEffects.shocked;
+            frontColor = Color.valueOf("FFF484");
+            backColor = Color.valueOf("F3E979");
+            lightning = 2;
+            lightningLength = 7;
         }};
     }
 }
