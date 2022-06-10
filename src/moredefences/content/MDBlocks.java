@@ -153,7 +153,7 @@ public class MDBlocks{
                 Items.pyratite, MDBullets.clusterPyra,
                 Items.blastCompound, MDBullets.clusterBlast,
                 Items.plastanium, MDBullets.clusterPlast,
-                Items.surgeAlloy, MDBullets.clusterSurge,
+                Items.surgeAlloy, MDBullets.clusterSurge
             );
             coolant = consumeCoolant(0.2f);
             coolantMultiplier = 0.5f;
