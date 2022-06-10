@@ -35,7 +35,7 @@ public class MDBlocks{
     public static Block
 
     // turrets
-    multishot, /*twothreecannon,*/ beehive, bubbler, carbine;
+    multishot, beehive, bubbler, carbine, cluster;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -81,7 +81,8 @@ public class MDBlocks{
             ammo(
                 Items.lead, MDBullets.beehiveLead
             );
-            coolant = consumeCoolant(0.2f*0.8f);
+            coolant = consumeCoolant(0.2f);
+            coolantMultiplier = 0.8f;
         }};
         bubbler = new LiquidTurret("bubbler"){{
             requirements(Category.turret, with(
@@ -125,6 +126,37 @@ public class MDBlocks{
                 MDItems.aluminum, MDBullets.carbineAluminum
             );
             coolant = consumeCoolant(0.2f);
+        }};
+        cluster = new ItemTurret("cluster"){{
+            requirements(Category.turret, with(
+                Items.copper, 250,
+                Items.graphite, 240,
+                Items.thorium, 250,
+                Items.surgeAlloy, 200
+            ));
+            size = 4;
+            health = 1600;
+            reload = 90;
+            inaccuracy = 3f;
+            range = 360f;
+            rotateSpeed = 4f;
+            recoil = 6f;
+            shootSound = Sounds.artillery;
+            ejectEffect = Fx.casing3Double;
+            velocityInaccuracy = 0.3f;
+            shake = 2f;
+            cooldownTime = 0.03f;
+            ammoEjectBack = 5;
+            targetAir = false;
+            shoot = new ShootSpread(12, 0f);
+            ammo(
+                Items.pyratite, MDBullets.clusterPyra,
+                Items.blastCompound, MDBullets.clusterBlast,
+                Items.plastanium, MDBullets.clusterPlast,
+                Items.surgeAlloy, MDBullets.clusterSurge,
+            );
+            coolant = consumeCoolant(0.2f);
+            coolantMultiplier = 0.5f;
         }};
     }
 }
