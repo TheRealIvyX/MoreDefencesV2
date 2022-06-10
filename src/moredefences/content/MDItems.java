@@ -20,6 +20,7 @@ public class MDItems{
         }};
         cobalt = new Item("cobalt", Color.valueOf("a8b0e6")){{
             hardness = 1;
+            hideDetails = false;
         }};
         nickel = new Item("nickel", Color.valueOf("E7DEA4")){{ // formerly zinc, which was formerly iron
             hardness = 2;
