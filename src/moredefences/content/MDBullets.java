@@ -13,7 +13,7 @@ public class MDBullets{
     // turret projectiles
     multishotLead, multishotCoal, multishotSili, beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin, carbineAluminum,
     clusterPyra, clusterBlast, clusterPlast, clusterSurge, coilgunNickel, firenadoSlag, hellfirePyra, hellfireSpore,
-    instantLead, instantSili, instantTitanium, minelayerMine;
+    instantLead, instantSili, instantTitanium, minelayerMine, shrapnelLead, shrapnelMeta, shrapnelTitanium;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
@@ -27,7 +27,7 @@ public class MDBullets{
         }};
         multishotSili = new BasicBulletType(2f, 8f){{ // speed, dmg
             ammoMultiplier = 2f;
-            homingPower = 1f;
+            homingPower = 0.03f;
             lifetime = 70f;
         }};
         
@@ -253,8 +253,8 @@ public class MDBullets{
             reloadMultiplier = 0.6f;
             lifetime = 1200f;
             collidesAir = false;
-            width = 10f;
-            height = 10f;
+            width = 8f;
+            height = 8f;
             shrinkY = 0f;
             shrinkX = 0f;
             splashDamage = 45f;
@@ -262,6 +262,36 @@ public class MDBullets{
             drag = 0.065f;
             status = StatusEffects.blasted;
             sprite = "moredefences-mine";
+        }};
+        
+        shrapnelLead = new BasicBulletType(2f, 160f){{ // speed, dmg
+            ammoMultiplier = 2f;
+            width = 8f;
+            height = 12f;
+            fragBullets = 8;
+            fragBullet = new BasicBulletType(6f, 10f){{ // speed, dmg
+                lifetime = 15f;
+            }};
+        }};
+        shrapnelMeta = new BasicBulletType(2f, 120f){{ // speed, dmg
+            ammoMultiplier = 4f;
+            width = 8f;
+            height = 12f;
+            fragBullets = 16;
+            fragBullet = new BasicBulletType(12f, 10f){{ // speed, dmg
+                lifetime = 10f;
+            }};
+        }};
+        shrapnelTitanium = new BasicBulletType(2f, 280f){{ // speed, dmg
+            ammoMultiplier = 3f;
+            width = 8f;
+            height = 12f;
+            fragBullets = 10;
+            fragBullet = new BasicBulletType(6f, 25f){{ // speed, dmg
+                lifetime = 13f;
+                pierce = true;
+                pierceCap = 2;
+            }};
         }};
     }
 }
