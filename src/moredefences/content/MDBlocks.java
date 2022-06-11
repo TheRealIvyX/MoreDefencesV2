@@ -35,7 +35,8 @@ public class MDBlocks{
     public static Block
 
     // turrets
-    multishot, beehive, bubbler, carbine, cluster, coilgun, firenado, hellfire, instant, minelayer, shrapnel;
+    multishot, beehive, bubbler, carbine, cluster, coilgun, firenado, hellfire, instant, minelayer, shrapnel,
+    tearer;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -304,6 +305,25 @@ public class MDBlocks{
             );
             coolant = consumeCoolant(0.3f);
             coolantMultiplier = 2f/1.5f;
+        }};
+        tearer = new ItemTurret("tearer"){{
+            requirements(Category.turret, with(
+                Items.copper, 10,
+                Items.titanium, 15
+            ));
+            size = 1;
+            health = 200;
+            reload = 2;
+            inaccuracy = 1f;
+            range = 170f;
+            rotateSpeed = 15f;
+            targetGround = false;
+            //ejectEffect = Fx.shellEjectSmall;
+            shoot = new ShootAlternate(3f);
+            ammo(
+                Items.scrap, MDBullets.tearerScrap,
+                Items.lead, MDBullets.tearerLead,
+            );
         }};
     }
 }
