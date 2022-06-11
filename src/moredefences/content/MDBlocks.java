@@ -35,7 +35,7 @@ public class MDBlocks{
     public static Block
 
     // turrets
-    multishot, beehive, bubbler, carbine, cluster, coilgun, firenado, hellfire;
+    multishot, beehive, bubbler, carbine, cluster, coilgun, firenado, hellfire, instant;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -235,6 +235,31 @@ public class MDBlocks{
             ammo(
                 Items.pyratite, MDBullets.hellfirePyra,
                 Items.sporePod, MDBullets.hellfireSpore
+            );
+            coolant = consumeCoolant(0.2f);
+            coolantMultiplier = 0.5f;
+        }};
+        instant = new ItemTurret("instant"){{
+            requirements(Category.turret, with(
+                Items.copper, 95,
+                Items.lead, 110,
+                Items.graphite, 45,
+                Items.titanium, 50
+            ));
+            size = 2;
+            health = 560;
+            reload = 6;
+            inaccuracy = 1f;
+            range = 170f;
+            rotateSpeed = 50f;
+            targetGround = false;
+            maxAmmo = 60;
+            //ejectEffect = Fx.shellEjectSmall;
+            shoot = new ShootAlternate(5f);
+            ammo(
+                Items.lead, MDBullets.instantLead,
+                Items.silicon, MDBullets.instantSili,
+                Items.titanium, MDBullets.instantTitanium
             );
             coolant = consumeCoolant(0.2f);
             coolantMultiplier = 0.5f;
