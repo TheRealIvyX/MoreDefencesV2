@@ -277,7 +277,7 @@ public class MDBlocks{
             targetAir = false;
             velocityRnd = 0.3f;
             //ejectEffect = Fx.shellEjectSmall;
-            shoot = new ShootSpread(5f, 0f); // buff bullet count to 6 post-rework
+            shoot = new ShootSpread(5, 0f); // buff bullet count to 6 post-rework
             ammo(
                 Items.blastCompound, MDBullets.minelayerMine
             );
