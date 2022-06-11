@@ -230,12 +230,14 @@ public class MDBullets{
         instantLead = new BasicBulletType(16f, 22f){{ // speed, dmg
             ammoMultiplier = 3f;
             lifetime = 12f;
+            collidesGround = false;
         }};
         instantSili = new BasicBulletType(20f, 18f){{ // speed, dmg
             ammoMultiplier = 5f;
             reloadMultiplier = 1.5f;
             lifetime = 9f;
             homingPower = 12f;
+            collidesGround = false;
         }};
         instantTitanium = new BasicBulletType(13f, 44f){{ // speed, dmg
             ammoMultiplier = 4f;
@@ -243,6 +245,7 @@ public class MDBullets{
             lifetime = 15f;
             pierce = true;
             pierceCap = 3;
+            collidesGround = false;
         }};
     }
 }
