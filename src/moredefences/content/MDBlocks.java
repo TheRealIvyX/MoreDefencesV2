@@ -241,10 +241,8 @@ public class MDBlocks{
         }};
         instant = new ItemTurret("instant"){{
             requirements(Category.turret, with(
-                Items.copper, 95,
-                Items.lead, 110,
-                Items.graphite, 45,
-                Items.titanium, 50
+                Items.titanium, 70,
+                Items.thorium, 45
             ));
             size = 2;
             health = 560;
