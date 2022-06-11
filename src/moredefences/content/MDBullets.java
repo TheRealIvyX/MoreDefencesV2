@@ -249,7 +249,7 @@ public class MDBullets{
         }};
         
         minelayerMine = new BasicBulletType(6f, 25f){{ // speed, dmg
-            ammoMultiplier = 4f;
+            ammoMultiplier = 1f;
             reloadMultiplier = 0.6f;
             lifetime = 1200f;
             collidesAir = false;
