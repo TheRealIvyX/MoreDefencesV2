@@ -234,7 +234,7 @@ public class MDBlocks{
             targetAir = false;
             ammo(
                 Items.pyratite, MDBullets.hellfirePyra,
-                Items.sporePod, MDBullets.hellfireSpore,
+                Items.sporePod, MDBullets.hellfireSpore
             );
             coolant = consumeCoolant(0.2f);
             coolantMultiplier = 0.5f;
