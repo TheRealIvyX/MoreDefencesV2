@@ -295,7 +295,7 @@ public class MDBlocks{
             range = 172f;
             rotateSpeed = 2f;
             targetAir = false;
-            ammoPerShot = 4f;
+            ammoPerShot = 4;
             //ejectEffect = Fx.shellEjectSmall;
             ammo(
                 Items.lead, MDBullets.shrapnelLead,
