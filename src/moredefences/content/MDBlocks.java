@@ -209,5 +209,35 @@ public class MDBlocks{
                 Liquids.slag, MDBullets.firenadoSlag
             );
         }};
+        hellfire = new ItemTurret("hellfire"){{
+            requirements(Category.turret, with(
+                Items.copper, 240,
+                Items.lead, 240,
+                MDItems.nickel, 80,
+                Items.silicon, 120,
+                Items.graphite, 120,
+                Items.titanium, 60,
+                Items.thorium, 40,
+                Items.phaseFabric, 20,
+                Items.surgeAlloy, 10
+            ));
+            size = 4;
+            health = 1120;
+            reload = 300;
+            inaccuracy = 0f;
+            range = 460f;
+            rotateSpeed = 3f;
+            recoil = 3f;
+            shootSound = Sounds./*[[*/bigshot/*]]*/;
+            ammoPerShot = 40;
+            maxAmmo = 80;
+            targetAir = false;
+            ammo(
+                Items.pyratite, MDBullets.hellfirePyra,
+                Items.sporePod, MDBullets.hellfireSpore,
+            );
+            coolant = consumeCoolant(0.2f);
+            coolantMultiplier = 0.5f;
+        }};
     }
 }
