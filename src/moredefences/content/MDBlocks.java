@@ -309,7 +309,7 @@ public class MDBlocks{
         tearer = new ItemTurret("tearer"){{
             requirements(Category.turret, with(
                 Items.copper, 10,
-                Items.titanium, 15
+                Items.titanium, 25
             ));
             size = 1;
             health = 200;
@@ -322,7 +322,7 @@ public class MDBlocks{
             shoot = new ShootAlternate(3f);
             ammo(
                 Items.scrap, MDBullets.tearerScrap,
-                Items.lead, MDBullets.tearerLead,
+                Items.lead, MDBullets.tearerLead
             );
         }};
     }
