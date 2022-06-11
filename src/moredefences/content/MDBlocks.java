@@ -279,7 +279,7 @@ public class MDBlocks{
             //ejectEffect = Fx.shellEjectSmall;
             shoot = new ShootSpread(5f, 0f); // buff bullet count to 6 post-rework
             ammo(
-                Items.blastCompound, MDBullets.minelayerMine,
+                Items.blastCompound, MDBullets.minelayerMine
             );
         }};
     }
