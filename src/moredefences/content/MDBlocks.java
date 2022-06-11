@@ -35,7 +35,7 @@ public class MDBlocks{
     public static Block
 
     // turrets
-    multishot, beehive, bubbler, carbine, cluster, coilgun, firenado;
+    multishot, beehive, bubbler, carbine, cluster, coilgun, firenado, hellfire;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
