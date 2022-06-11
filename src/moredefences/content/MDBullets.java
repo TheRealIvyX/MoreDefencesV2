@@ -12,7 +12,8 @@ public class MDBullets{
 
     // turret projectiles
     multishotLead, multishotCoal, multishotSili, beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin, carbineAluminum,
-    clusterPyra, clusterBlast, clusterPlast, clusterSurge, coilgunNickel, firenadoSlag, hellfirePyra, hellfireSpore;
+    clusterPyra, clusterBlast, clusterPlast, clusterSurge, coilgunNickel, firenadoSlag, hellfirePyra, hellfireSpore,
+    instantLead, instantSili, instantTitanium;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
@@ -224,6 +225,24 @@ public class MDBullets{
                 statusDuration = 120f;
                 homingPower = 0.2f;
             }};
+        }};
+        
+        instantLead = new BasicBulletType(16f, 22f){{ // speed, dmg
+            ammoMultiplier = 3f;
+            lifetime = 12f;
+        }};
+        instantSili = new BasicBulletType(20f, 18f){{ // speed, dmg
+            ammoMultiplier = 5f;
+            reloadMultiplier = 1.5f;
+            lifetime = 9f;
+            homingPower = 12f;
+        }};
+        instantTitanium = new BasicBulletType(13f, 44f){{ // speed, dmg
+            ammoMultiplier = 4f;
+            reloadMultiplier = 0.6f;
+            lifetime = 15f;
+            pierce = true;
+            pierceCap = 3;
         }};
     }
 }
