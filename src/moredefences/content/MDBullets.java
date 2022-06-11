@@ -13,7 +13,7 @@ public class MDBullets{
     // turret projectiles
     multishotLead, multishotCoal, multishotSili, beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin, carbineAluminum,
     clusterPyra, clusterBlast, clusterPlast, clusterSurge, coilgunNickel, firenadoSlag, hellfirePyra, hellfireSpore,
-    instantLead, instantSili, instantTitanium;
+    instantLead, instantSili, instantTitanium, minelayerMine;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
@@ -246,6 +246,22 @@ public class MDBullets{
             pierce = true;
             pierceCap = 3;
             collidesGround = false;
+        }};
+        
+        minelayerMine = new BasicBulletType(6f, 25f){{ // speed, dmg
+            ammoMultiplier = 4f;
+            reloadMultiplier = 0.6f;
+            lifetime = 1200f;
+            collidesAir = false;
+            width = 10f;
+            height = 10f;
+            shrinkY = 0f;
+            shrinkX = 0f;
+            splashDamage = 45f;
+            splashDamageRadius = 45f; // buff to 60 post-rework
+            drag = 0.065f;
+            status = StatusEffects.blasted;
+            sprite = "moredefences-mine";
         }};
     }
 }
