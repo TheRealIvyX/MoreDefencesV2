@@ -268,24 +268,27 @@ public class MDBullets{
             ammoMultiplier = 2f;
             width = 8f;
             height = 12f;
+            lifetime = 86f;
             fragBullets = 8;
             fragBullet = new BasicBulletType(6f, 10f){{ // speed, dmg
                 lifetime = 15f;
             }};
         }};
-        shrapnelMeta = new BasicBulletType(2f, 120f){{ // speed, dmg
+        shrapnelMeta = new BasicBulletType(3f, 120f){{ // speed, dmg
             ammoMultiplier = 4f;
             width = 8f;
             height = 12f;
+            lifetime = 58f;
             fragBullets = 16;
             fragBullet = new BasicBulletType(12f, 10f){{ // speed, dmg
                 lifetime = 10f;
             }};
         }};
-        shrapnelTitanium = new BasicBulletType(2f, 280f){{ // speed, dmg
+        shrapnelTitanium = new BasicBulletType(4f, 280f){{ // speed, dmg
             ammoMultiplier = 3f;
             width = 8f;
             height = 12f;
+            lifetime = 43f;
             fragBullets = 10;
             fragBullet = new BasicBulletType(6f, 25f){{ // speed, dmg
                 lifetime = 13f;
