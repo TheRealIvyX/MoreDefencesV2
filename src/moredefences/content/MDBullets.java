@@ -12,7 +12,8 @@ public class MDBullets{
 
     // turret projectiles
     multishotLead, multishotCoal, multishotSili, beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin, carbineAluminum,
-    clusterPyra, clusterBlast, clusterPlast, clusterSurge;
+    clusterPyra, clusterBlast, clusterPlast, clusterSurge, coilgunNickel, firenadoSlag, hellfirePyra, hellfireSpore,
+    instantLead, instantSili, instantTitanium, minelayerMine, shrapnelLead, shrapnelMeta, shrapnelTitanium, tearerScrap, tearerLead;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
@@ -26,7 +27,7 @@ public class MDBullets{
         }};
         multishotSili = new BasicBulletType(2f, 8f){{ // speed, dmg
             ammoMultiplier = 2f;
-            homingPower = 1f;
+            homingPower = 0.03f;
             lifetime = 70f;
         }};
         
@@ -160,6 +161,156 @@ public class MDBullets{
             backColor = Color.valueOf("F3E979");
             lightning = 2;
             lightningLength = 7;
+        }};
+        
+        coilgunNickel = new BasicBulletType(15f, 450f){{ // speed, dmg
+            ammoMultiplier = 1f; 
+            splashDamage = 350f;
+            splashDamageRadius = 16f;
+            frontColor = Color.valueOf("ffffff");
+            backColor = Color.valueOf("d1f1ff");
+            collidesAir = false;
+            width = 2;
+            height = 15;
+            hitSound = Sounds.explosionbig;
+            hitShake = 2f;
+        }};
+        
+        firenadoSlag = new LiquidBulletType(Liquids.slag){{ // liquid
+            damage = 20f;
+            status = StatusEffects.melting;
+            pierce = true;
+            pierceCap = 4;
+            knockback = 2f;
+            ammoMultiplier = 0.06666666667f;
+            statusDuration = 360f;
+            puddleSize = 3f;
+            speed = 7f;
+        }};
+        
+        hellfirePyra = new MissileBulletType(7.5f, 1200f){{ // speed, dmg
+            ammoMultiplier = 1f; 
+            splashDamage = 900f;
+            splashDamageRadius = 32f;
+            frontColor = Color.valueOf("ff9c63");
+            backColor = Color.valueOf("b3683d");
+            collidesAir = false;
+            width = 15;
+            height = 15;
+            hitSound = Sounds.explosionbig;
+            homingPower = 0.1f;
+            hitShake = 6f;
+            status = StatusEffects.burning;
+            fragBullets = 20;
+            fragBullet = new BasicBulletType(12f, 2, "bullet"){{
+                status = StatusEffects.burning;
+            }};
+        }};
+        hellfireSpore = new MissileBulletType(7.5f, 650f){{ // speed, dmg
+            ammoMultiplier = 1f; 
+            splashDamage = 550f;
+            splashDamageRadius = 32f;
+            frontColor = Color.valueOf("9854ff");
+            backColor = Color.valueOf("5827a3");
+            collidesAir = false;
+            width = 15;
+            height = 15;
+            hitSound = Sounds.explosionbig;
+            homingPower = 0.1f;
+            hitShake = 4f;
+            status = StatusEffects.burning;
+            fragBullets = 20;
+            fragBullet = new BasicBulletType(12f, 2, "bullet"){{
+                status = StatusEffects.sporeSlowed;
+                statusDuration = 120f;
+                homingPower = 0.2f;
+            }};
+        }};
+        
+        instantLead = new BasicBulletType(16f, 22f){{ // speed, dmg
+            ammoMultiplier = 3f;
+            lifetime = 12f;
+            collidesGround = false;
+        }};
+        instantSili = new BasicBulletType(20f, 18f){{ // speed, dmg
+            ammoMultiplier = 5f;
+            reloadMultiplier = 1.5f;
+            lifetime = 9f;
+            homingPower = 12f;
+            collidesGround = false;
+        }};
+        instantTitanium = new BasicBulletType(13f, 44f){{ // speed, dmg
+            ammoMultiplier = 4f;
+            reloadMultiplier = 0.6f;
+            lifetime = 15f;
+            pierce = true;
+            pierceCap = 3;
+            collidesGround = false;
+        }};
+        
+        minelayerMine = new BasicBulletType(6f, 25f){{ // speed, dmg
+            ammoMultiplier = 1f;
+            reloadMultiplier = 0.6f;
+            lifetime = 1200f;
+            collidesAir = false;
+            width = 8f;
+            height = 8f;
+            shrinkY = 0f;
+            shrinkX = 0f;
+            splashDamage = 45f;
+            splashDamageRadius = 45f; // buff to 60 post-rework
+            drag = 0.065f;
+            status = StatusEffects.blasted;
+            sprite = "moredefences-mine";
+        }};
+        
+        shrapnelLead = new BasicBulletType(2f, 160f){{ // speed, dmg
+            ammoMultiplier = 2f;
+            width = 8f;
+            height = 12f;
+            lifetime = 86f;
+            fragBullets = 8;
+            fragBullet = new BasicBulletType(6f, 10f){{ // speed, dmg
+                lifetime = 15f;
+            }};
+        }};
+        shrapnelMeta = new BasicBulletType(3f, 120f){{ // speed, dmg
+            ammoMultiplier = 4f;
+            width = 8f;
+            height = 12f;
+            lifetime = 58f;
+            fragBullets = 16;
+            fragBullet = new BasicBulletType(12f, 10f){{ // speed, dmg
+                lifetime = 10f;
+            }};
+        }};
+        shrapnelTitanium = new BasicBulletType(4f, 280f){{ // speed, dmg
+            ammoMultiplier = 3f;
+            width = 8f;
+            height = 12f;
+            lifetime = 43f;
+            fragBullets = 10;
+            fragBullet = new BasicBulletType(6f, 25f){{ // speed, dmg
+                lifetime = 13f;
+                pierce = true;
+                pierceCap = 2;
+            }};
+        }};
+        
+        tearerScrap = new BasicBulletType(10f, 4f){{ // speed, dmg
+            ammoMultiplier = 2f;
+            lifetime = 17f;
+            collidesGround = false;
+            width = 2f;
+            height = 3f;
+            reloadMultiplier = 0.667f;
+        }};
+        tearerLead = new BasicBulletType(9f, 6f){{ // speed, dmg
+            ammoMultiplier = 5f;
+            lifetime = 19f;
+            collidesGround = false;
+            width = 2f;
+            height = 3f;
         }};
     }
 }

@@ -35,7 +35,8 @@ public class MDBlocks{
     public static Block
 
     // turrets
-    multishot, beehive, bubbler, carbine, cluster;
+    multishot, beehive, bubbler, carbine, cluster, coilgun, firenado, hellfire, instant, minelayer, shrapnel,
+    tearer;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -60,7 +61,6 @@ public class MDBlocks{
             );
             coolant = consumeCoolant(0.2f);
         }};
-        // twothreecannon
         beehive = new ItemTurret("beehive"){{
             requirements(Category.turret, with(
                 Items.copper, 95,
@@ -158,6 +158,172 @@ public class MDBlocks{
             );
             coolant = consumeCoolant(0.2f);
             coolantMultiplier = 0.5f;
+        }};
+        coilgun = new ItemTurret("coilgun"){{ // coligun
+            requirements(Category.turret, with(
+                Items.copper, 120,
+                Items.lead, 120,
+                MDItems.nickel, 80
+            ));
+            size = 3;
+            health = 1120;
+            reload = 100;
+            inaccuracy = 0f;
+            range = 360f;
+            rotateSpeed = 10f;
+            recoil = 3f;
+            shootSound = Sounds./*[[*/bigshot/*]]*/;
+            ammoPerShot = 20;
+            maxAmmo = 40;
+            targetAir = false;
+            ammo(
+                MDItems.nickel, MDBullets.coilgunNickel
+            );
+            coolant = consumeCoolant(0.2f);
+            coolantMultiplier = 0.8f;
+        }};
+        firenado = new LiquidTurret("firenado"){{
+            requirements(Category.turret, with(
+                //MDItems.bronze, 500,
+                MDItems.aluminum, 500, //300
+                MDItems.cobalt, 230,
+                MDItems.radiode, 200,
+                Items.thorium, 170,
+                Items.surgeAlloy, 150
+            ));
+            size = 4;
+            health = 2400;
+            reload = 100;
+            inaccuracy = 25f;
+            range = 260f;
+            rotateSpeed = 10f;
+            recoil = 5f;
+            velocityRnd = 0.9f;
+            shootSound = Sounds.splash;
+            shootEffect = Fx.shootLiquid;
+            ammoPerShot = 15;
+            maxAmmo = 90;
+            shootCone = 45f;
+            shoot = new ShootSpread(180, 0f);
+            liquidCapacity = 90f;
+            ammo(
+                Liquids.slag, MDBullets.firenadoSlag
+            );
+        }};
+        hellfire = new ItemTurret("hellfire"){{
+            requirements(Category.turret, with(
+                Items.copper, 240,
+                Items.lead, 240,
+                MDItems.nickel, 80,
+                Items.silicon, 120,
+                Items.graphite, 120,
+                Items.titanium, 60,
+                Items.thorium, 40,
+                Items.phaseFabric, 20,
+                Items.surgeAlloy, 10
+            ));
+            size = 4;
+            health = 1120;
+            reload = 300;
+            inaccuracy = 0f;
+            range = 460f;
+            rotateSpeed = 3f;
+            recoil = 3f;
+            shootSound = Sounds./*[[*/bigshot/*]]*/;
+            ammoPerShot = 40;
+            maxAmmo = 80;
+            targetAir = false;
+            ammo(
+                Items.pyratite, MDBullets.hellfirePyra,
+                Items.sporePod, MDBullets.hellfireSpore
+            );
+            coolant = consumeCoolant(0.2f);
+            coolantMultiplier = 0.5f;
+        }};
+        instant = new ItemTurret("instant"){{
+            requirements(Category.turret, with(
+                Items.graphite, 40,
+                Items.titanium, 70,
+                Items.thorium, 45
+            ));
+            size = 2;
+            health = 560;
+            reload = 6;
+            inaccuracy = 1f;
+            range = 170f;
+            rotateSpeed = 50f;
+            targetGround = false;
+            //ejectEffect = Fx.shellEjectSmall;
+            shoot = new ShootAlternate(5f);
+            ammo(
+                Items.lead, MDBullets.instantLead,
+                Items.silicon, MDBullets.instantSili,
+                Items.titanium, MDBullets.instantTitanium
+            );
+            coolant = consumeCoolant(0.2f);
+            coolantMultiplier = 0.5f;
+        }};
+        minelayer = new ItemTurret("minelayer"){{
+            requirements(Category.turret, with(
+                Items.graphite, 45,
+                Items.titanium, 30,
+                Items.silicon, 60
+            ));
+            size = 2;
+            health = 800;
+            reload = 300;
+            inaccuracy = 15f;
+            range = 170f;
+            rotateSpeed = 5f;
+            targetAir = false;
+            velocityRnd = 0.3f;
+            //ejectEffect = Fx.shellEjectSmall;
+            shoot = new ShootSpread(5, 0f); // buff bullet count to 6 post-rework
+            ammo(
+                Items.blastCompound, MDBullets.minelayerMine
+            );
+        }};
+        shrapnel = new ItemTurret("shrapnel"){{
+            requirements(Category.turret, with(
+                Items.copper, 50,
+                Items.lead, 50,
+                Items.titanium, 75
+            ));
+            size = 2;
+            health = 450;
+            reload = 180;
+            inaccuracy = 2f;
+            range = 172f;
+            rotateSpeed = 2f;
+            targetAir = false;
+            ammoPerShot = 4;
+            //ejectEffect = Fx.shellEjectSmall;
+            ammo(
+                Items.lead, MDBullets.shrapnelLead,
+                Items.metaglass, MDBullets.shrapnelMeta,
+                Items.titanium, MDBullets.shrapnelTitanium
+            );
+            coolant = consumeCoolant(0.3f);
+            coolantMultiplier = 2f/1.5f;
+        }};
+        tearer = new ItemTurret("tearer"){{
+            requirements(Category.turret, with(
+                Items.copper, 10,
+                Items.titanium, 25
+            ));
+            size = 1;
+            health = 200;
+            reload = 2;
+            inaccuracy = 1f;
+            range = 170f;
+            rotateSpeed = 15f;
+            targetGround = false;
+            //ejectEffect = Fx.shellEjectSmall;
+            shoot = new ShootAlternate(3f);
+            ammo(
+                Items.scrap, MDBullets.tearerScrap,
+                Items.lead, MDBullets.tearerLead
+            );
         }};
     }
 }

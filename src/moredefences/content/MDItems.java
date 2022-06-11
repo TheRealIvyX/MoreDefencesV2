@@ -5,7 +5,7 @@ import mindustry.type.*;
 
 public class MDItems{
     public static Item
-        aluminum, tin, cobalt;
+        aluminum, tin, cobalt, nickel, radium, radiode;
 
     public static void load(){
         aluminum = new Item("aluminum", Color.valueOf("bdffdf")){{
@@ -20,6 +20,20 @@ public class MDItems{
         }};
         cobalt = new Item("cobalt", Color.valueOf("a8b0e6")){{
             hardness = 1;
+            hideDetails = false;
+        }};
+        nickel = new Item("nickel", Color.valueOf("E7DEA4")){{ // formerly zinc, which was formerly iron
+            hardness = 2;
+        }};
+        radium = new Item("radium", Color.valueOf("661C1C")){{
+            hardness = 3;
+            radioactivity = 1.05f;
+            explosiveness = 0.4f;
+        }};
+        radiode = new Item("radiode", Color.valueOf("DD291C")){{
+            cost = 1.1f;
+            radioactivity = 0.65f;
+            explosiveness = 0.1f;
         }};
     }
 }
