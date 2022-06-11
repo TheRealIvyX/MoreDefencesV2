@@ -12,7 +12,7 @@ public class MDBullets{
 
     // turret projectiles
     multishotLead, multishotCoal, multishotSili, beehiveLead, bubblerWater, bubblerSlag, bubblerOil, bubblerCryo, carbineTin, carbineAluminum,
-    clusterPyra, clusterBlast, clusterPlast, clusterSurge, coilgunNickel, firenadoSlag;
+    clusterPyra, clusterBlast, clusterPlast, clusterSurge, coilgunNickel, firenadoSlag, hellfirePyra, hellfireSpore;
 
     public static void load(){
         multishotLead = new BasicBulletType(3f, 7f){{ // speed, dmg
@@ -185,6 +185,45 @@ public class MDBullets{
             statusDuration = 360f;
             puddleSize = 3f;
             speed = 7f;
+        }};
+        
+        hellfirePyra = new MissileBulletType(7.5f, 1200f){{ // speed, dmg
+            ammoMultiplier = 1f; 
+            splashDamage = 900f;
+            splashDamageRadius = 32f;
+            frontColor = Color.valueOf("ff9c63");
+            backColor = Color.valueOf("b3683d");
+            collidesAir = false;
+            width = 15;
+            height = 15;
+            hitSound = Sounds.explosionbig;
+            homingPower = 0.1f;
+            hitShake = 6f;
+            status = StatusEffects.burning;
+            fragBullets = 20;
+            fragBullet = new BasicBulletType(12f, 2, "bullet"){{
+                status = StatusEffects.burning;
+            }};
+        }};
+        hellfireSpore = new MissileBulletType(7.5f, 650f){{ // speed, dmg
+            ammoMultiplier = 1f; 
+            splashDamage = 550f;
+            splashDamageRadius = 32f;
+            frontColor = Color.valueOf("9854ff");
+            backColor = Color.valueOf("5827a3");
+            collidesAir = false;
+            width = 15;
+            height = 15;
+            hitSound = Sounds.explosionbig;
+            homingPower = 0.1f;
+            hitShake = 4f;
+            status = StatusEffects.burning;
+            fragBullets = 20;
+            fragBullet = new BasicBulletType(12f, 2, "bullet"){{
+                status = StatusEffects.sporeSlowed;
+                statusDuration = 120f;
+                homingPower = 0.2f;
+            }};
         }};
     }
 }
