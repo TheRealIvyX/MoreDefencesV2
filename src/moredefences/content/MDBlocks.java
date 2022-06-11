@@ -241,6 +241,7 @@ public class MDBlocks{
         }};
         instant = new ItemTurret("instant"){{
             requirements(Category.turret, with(
+                Items.graphite, 40,
                 Items.titanium, 70,
                 Items.thorium, 45
             ));
@@ -251,7 +252,6 @@ public class MDBlocks{
             range = 170f;
             rotateSpeed = 50f;
             targetGround = false;
-            maxAmmo = 60;
             //ejectEffect = Fx.shellEjectSmall;
             shoot = new ShootAlternate(5f);
             ammo(
