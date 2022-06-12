@@ -38,7 +38,7 @@ public class MDBlocks{
     multishot, beehive, bubbler, carbine, cluster, coilgun, firenado, hellfire, instant, minelayer, shrapnel,
     tearer,
     // production - drills
-    coalExtractor;
+    coalExtractor, farmer;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
