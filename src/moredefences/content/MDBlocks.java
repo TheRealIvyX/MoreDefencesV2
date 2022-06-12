@@ -36,7 +36,9 @@ public class MDBlocks{
 
     // turrets
     multishot, beehive, bubbler, carbine, cluster, coilgun, firenado, hellfire, instant, minelayer, shrapnel,
-    tearer;
+    tearer,
+    // production - drills
+    coalExtractor;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -324,6 +326,24 @@ public class MDBlocks{
                 Items.scrap, MDBullets.tearerScrap,
                 Items.lead, MDBullets.tearerLead
             );
+        }};
+        // production - drills
+        coalExtractor = new GenericCrafter("coal-extractor"){{
+            requirements(Category.crafting, with(
+                Items.copper, 30,
+                Items.lead, 40,
+                Items.graphite, 30
+            ));
+            size = 2;
+            health = 200;
+            size = 2;
+            hasPower = true;
+            hasItems = true;
+            craftTime = 180f;
+
+            consumePower(0.35f);
+            
+            outputItem = new ItemStack(Items.coal, 1);
         }};
     }
 }
