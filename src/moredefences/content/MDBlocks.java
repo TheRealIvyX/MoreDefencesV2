@@ -416,7 +416,7 @@ public class MDBlocks{
 
             consumePower(0.4f);
             
-            outputItem = new ItemStack(Items.coal, 1);
+            outputItem = new ItemStack(MDItems.nickel, 1);
         }};
     }
 }
