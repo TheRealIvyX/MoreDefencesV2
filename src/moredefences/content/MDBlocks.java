@@ -38,7 +38,7 @@ public class MDBlocks{
     multishot, beehive, bubbler, carbine, cluster, coilgun, firenado, hellfire, instant, minelayer, shrapnel,
     tearer,
     // production - drills
-    coalExtractor, farmer;
+    coalExtractor, farmer, largeWext;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -377,6 +377,26 @@ public class MDBlocks{
             consumeLiquid(Liquids.water, 36f / 60f);
             
             outputItem = new ItemStack(Items.sporePod, 3);
+        }};
+        largeWext = new SolidPump("large-water-extractor"){{
+            requirements(Category.production, with(
+                Items.lead, 60,
+                Items.graphite, 60,
+                Items.silicon, 50,
+                Items.titanium, 45,
+                Items.plastanium, 60,
+                Items.thorium, 60
+            ));
+            size = 3;
+            health = 360;
+            hasPower = true;
+            hasItems = true;
+            pumpAmount = 0.3f;
+            liquidCapacity = 120f;
+            rotateSpeed = 1.2f;
+            result = Liquids.water;
+
+            consumePower(210f / 60f);
         }};
     }
 }
