@@ -329,14 +329,13 @@ public class MDBlocks{
         }};
         // production - drills
         coalExtractor = new GenericCrafter("coal-extractor"){{
-            requirements(Category.crafting, with(
+            requirements(Category.production, with(
                 Items.copper, 30,
                 Items.lead, 40,
                 Items.graphite, 30
             ));
             size = 2;
             health = 200;
-            size = 2;
             hasPower = true;
             hasItems = true;
             craftTime = 180f;
@@ -344,6 +343,40 @@ public class MDBlocks{
             consumePower(0.35f);
             
             outputItem = new ItemStack(Items.coal, 1);
+        }};
+        farmer = new AttributeCrafter("farmer"){{
+            requirements(Category.production, with(
+                Items.copper, 30,
+                Items.lead, 50,
+                Items.graphite, 35,
+                Items.silicon, 25,
+                Items.plastanium, 10
+            ));
+            size = 3;
+            health = 600;
+            hasLiquids = true;
+            hasPower = true;
+            hasItems = true;
+            itemCapacity = 30;
+            liquidCapacity = 100f;
+
+            craftEffect = Fx.none;
+            envRequired |= Env.spores;
+            attribute = Attribute.spores;
+
+            legacyReadWarmup = true;
+            drawer = new DrawMulti(
+                new DrawDefault(),
+                new DrawCultivator(),
+                new DrawRegion("-top")
+            );
+            maxBoost = 2f;
+
+            craftTime = 100;
+            consumePower(125f / 60f);
+            consumeLiquid(Liquids.water, 36f / 60f);
+            
+            outputItem = new ItemStack(Items.sporePod, 3);
         }};
     }
 }
