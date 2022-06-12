@@ -38,7 +38,7 @@ public class MDBlocks{
     multishot, beehive, bubbler, carbine, cluster, coilgun, firenado, hellfire, instant, minelayer, shrapnel,
     tearer,
     // production - drills
-    coalExtractor, farmer, largeWext;
+    coalExtractor, farmer, largeWext, nickelExtractor;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -397,6 +397,26 @@ public class MDBlocks{
             result = Liquids.water;
 
             consumePower(210f / 60f);
+        }};
+        nickelExtractor = new GenericCrafter("nickel-extractor"){{
+            requirements(Category.production, with(
+                Items.copper, 20,
+                Items.lead, 10,
+                Items.graphite, 10
+            ));
+            size = 2;
+            health = 200;
+            hasPower = true;
+            hasItems = true;
+            craftTime = 150f;
+            drawer = new DrawMulti(new DrawDefault(), new DrawRegion("-rotator"){{
+                spinSprite = true;
+                rotateSpeed = 3.91f;
+            }}, new DrawRegion("-top"));
+
+            consumePower(0.4f);
+            
+            outputItem = new ItemStack(Items.coal, 1);
         }};
     }
 }
