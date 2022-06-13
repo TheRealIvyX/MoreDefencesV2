@@ -460,7 +460,7 @@ public class MDBlocks{
         }};
         // production - crafters
         filter = new GenericCrafter("filter"){{
-            requirements(Category.production, with(
+            requirements(Category.crafting, with(
                 Items.copper, 45
             ));
             size = 1;
@@ -476,7 +476,7 @@ public class MDBlocks{
         }};
         // ionizer goes here
         sifter = new GenericCrafter("sifter"){{
-            requirements(Category.production, with(
+            requirements(Category.crafting, with(
                 Items.copper, 40,
                 Items.lead, 30
             ));
