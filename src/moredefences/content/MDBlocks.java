@@ -380,7 +380,7 @@ public class MDBlocks{
         }};
         frigid = new SolidPump("frigid"){{
             requirements(Category.production, with(
-                Items.cobalt, 35,
+                MDItems.cobalt, 35,
                 Items.metaglass, 65,
                 Items.plastanium, 45
             ));
