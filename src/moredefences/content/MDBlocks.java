@@ -497,7 +497,7 @@ public class MDBlocks{
                 Items.graphite, 120,
                 Items.titanium, 80,
                 Items.plastanium, 90,
-                Items.radium, 70
+                MDItems.radium, 70
             ));
             size = 3;
             health = 720;
