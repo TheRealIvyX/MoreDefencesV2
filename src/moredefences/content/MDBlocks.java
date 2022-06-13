@@ -508,7 +508,6 @@ public class MDBlocks{
             itemCapacity = 30;
             updateEffect = Fx.fuelburn;
             drawer = new DrawMulti(new DrawDefault(), new DrawRegion("-rotator"){{
-                spinSprite = true;
                 rotateSpeed = 3.4f;
             }}, new DrawRegion("-top"));
 
