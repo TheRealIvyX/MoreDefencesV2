@@ -40,7 +40,7 @@ public class MDBlocks{
     // production - drills
     coalExtractor, farmer, frigid, largeWext, nickelExtractor, thoriumExtractor,
     // production - crafters
-    filter, /*ionizer,*/ sifter;
+    filter, /*ionizer,*/ sifter, sterilizer, tinRefurbish;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -488,9 +488,54 @@ public class MDBlocks{
             itemCapacity = 30;
             
             consumeItem(Items.sand, 7);
-            //consumeItems(with(Items.tungsten, 2, Items.graphite, 3));
             
             outputItem = new ItemStack(Items.scrap, 2);
+        }};
+        sterilizer = new GenericCrafter("sterilizer"){{
+            requirements(Category.crafting, with(
+                MDItems.tin, 80,
+                Items.graphite, 120,
+                Items.titanium, 80,
+                Items.plastanium, 90,
+                Items.radium, 70
+            ));
+            size = 3;
+            health = 720;
+            hasPower = true;
+            hasItems = true;
+            hasLiquids = true;
+            craftTime = 60f;
+            itemCapacity = 30;
+            updateEffect = Fx.fuelburn;
+            drawer = new DrawMulti(new DrawDefault(), new DrawRegion("-rotator"){{
+                spinSprite = true;
+                rotateSpeed = 3.4f;
+            }}, new DrawRegion("-top"));
+
+            consumePower(3f);
+            consumeItems(with(MDItems.radium, 3, Items.sand, 12));
+            consumeLiquid(Liquids.oil, 0.15f);
+            
+            outputItem = new ItemStack(MDItems.radiode, 3);
+        }};
+        tinRefurbish = new GenericCrafter("tin-refurbish"){{
+            requirements(Category.crafting, with(
+                MDItems.tin, 20,
+                Items.copper, 35,
+                Items.lead, 25
+            ));
+            size = 2;
+            health = 170;
+            hasPower = true;
+            hasItems = true;
+            hasLiquids = true;
+            craftTime = 45f;
+            
+            consumePower(0.5f);
+            consumeItem(MDItems.tin, 2);
+            consumeLiquid(Liquids.water, 0.02f);
+            
+            outputItem = new ItemStack(MDItems.aluminum, 1);
         }};
     }
 }
