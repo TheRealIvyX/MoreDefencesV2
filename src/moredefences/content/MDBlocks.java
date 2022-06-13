@@ -389,7 +389,7 @@ public class MDBlocks{
             hasPower = true;
             pumpAmount = 0.08f;
             updateEffect = Fx.shootBigSmoke;
-            drillEffect = Fx.freezing;
+            // drillEffect = Fx.freezing;
             liquidCapacity = 20f;
             rotateSpeed = 0f;
             result = Liquids.cryofluid;
