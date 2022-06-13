@@ -38,7 +38,9 @@ public class MDBlocks{
     multishot, beehive, bubbler, carbine, cluster, coilgun, firenado, hellfire, instant, minelayer, shrapnel,
     tearer,
     // production - drills
-    coalExtractor, farmer, frigid, largeWext, nickelExtractor, thoriumExtractor;
+    coalExtractor, farmer, frigid, largeWext, nickelExtractor, thoriumExtractor,
+    // production - crafters
+    filter, /*ionizer,*/ sifter;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -455,6 +457,40 @@ public class MDBlocks{
             consumeLiquid(Liquids.cryofluid, 10f / 60f);
             
             outputItem = new ItemStack(Items.thorium, 1);
+        }};
+        // production - crafters
+        filter = new GenericCrafter("filter"){{
+            requirements(Category.production, with(
+                Items.copper, 45
+            ));
+            size = 1;
+            health = 40;
+            hasPower = true;
+            hasItems = true;
+            craftTime = 6f;
+            
+            consumeItem(Items.sand, 2);
+            //consumeItems(with(Items.tungsten, 2, Items.graphite, 3));
+            
+            outputItem = new ItemStack(MDItems.tin, 1);
+        }};
+        // ionizer goes here
+        sifter = new GenericCrafter("sifter"){{
+            requirements(Category.production, with(
+                Items.copper, 40,
+                Items.lead, 30
+            ));
+            size = 1;
+            health = 40;
+            hasPower = true;
+            hasItems = true;
+            craftTime = 6f;
+            itemCapacity = 30;
+            
+            consumeItem(Items.sand, 7);
+            //consumeItems(with(Items.tungsten, 2, Items.graphite, 3));
+            
+            outputItem = new ItemStack(Items.scrap, 2);
         }};
     }
 }
