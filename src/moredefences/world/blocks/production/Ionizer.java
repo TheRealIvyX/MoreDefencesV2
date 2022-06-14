@@ -40,7 +40,7 @@ public class Ionizer extends GenericCrafter{
             Draw.rect(graphiteRegion, x, y);
             
             Draw.alpha(0);
-            if (items.get(Items.graphite) >= 1 && items.get(Items.lead) >= 2 && power.status == true) Draw.alpha(1);
+            if (items.get(Items.graphite) >= 1 && items.get(Items.lead) >= 2 && power.status == 1f) Draw.alpha(1);
             Draw.rect(beamRegion, x, y);
           
             Draw.alpha(items.get(MDItems.radium) / itemCapacity);
