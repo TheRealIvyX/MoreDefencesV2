@@ -6,7 +6,7 @@ import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.util.*;
 import mindustry.content.*;
-import moredefences.content.items;
+import moredefences.content.*;
 import mindustry.entities.*;
 import mindustry.game.*;
 import mindustry.gen.*;
