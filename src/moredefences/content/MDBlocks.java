@@ -474,7 +474,7 @@ public class MDBlocks{
             
             outputItem = new ItemStack(MDItems.tin, 1);
         }};
-        ionizer = new GenericCrafter("ionizer"){{
+        ionizer = new Ionizer("ionizer"){{
             requirements(Category.crafting, with(
                 Items.lead, 35,
                 Items.graphite, 25,
