@@ -40,7 +40,7 @@ public class MDBlocks{
     // production - drills
     coalExtractor, farmer, frigid, largeWext, nickelExtractor, thoriumExtractor,
     // production - crafters
-    filter, /*ionizer,*/ sifter, sterilizer, tinRefurbish;
+    filter, ionizer, sifter, sterilizer, tinRefurbish;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -474,7 +474,29 @@ public class MDBlocks{
             
             outputItem = new ItemStack(MDItems.tin, 1);
         }};
-        // ionizer goes here
+        ionizer = new GenericCrafter("ionizer"){{
+            requirements(Category.crafting, with(
+                Items.lead, 35,
+                Items.graphite, 25,
+                Items.thorium, 60,
+                Items.plastanium, 20
+            ));
+            size = 2;
+            health = 160;
+            hasPower = true;
+            hasItems = true;
+            craftTime = 30f;
+            itemCapacity = 30;
+            updateEffect = Fx.none;
+            /*drawer = new DrawMulti(new DrawDefault(), new DrawRegion("-rotator"){{
+                rotateSpeed = 3.4f;
+            }}, new DrawRegion("-top"));*/
+
+            consumePower(1f);
+            consumeItems(with(Items.graphite, 1, Items.lead, 2));
+            
+            outputItem = new ItemStack(MDItems.radium, 3);
+        }};
         sifter = new GenericCrafter("sifter"){{
             requirements(Category.crafting, with(
                 Items.copper, 40,
