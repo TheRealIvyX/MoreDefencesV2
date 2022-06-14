@@ -15,13 +15,13 @@ import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
 
 public class Ionizer extends GenericCrafter{
-    public @Load("@-bottom") TextureRegion bottomRegion
-    public @Load("@-graphite") TextureRegion graphiteRegion
-    public @Load("@-beams") TextureRegion beamRegion
-    public @Load("@-radium") TextureRegion radiumRegion
-    public @Load("@-lead") TextureRegion leadRegion
-    public @Load("@-radium-piece") TextureRegion radiumPieceRegion
-    public @Load("@") TextureRegion topRegion
+    public @Load("@-bottom") TextureRegion bottomRegion;
+    public @Load("@-graphite") TextureRegion graphiteRegion;
+    public @Load("@-beams") TextureRegion beamRegion;
+    public @Load("@-radium") TextureRegion radiumRegion;
+    public @Load("@-lead") TextureRegion leadRegion;
+    public @Load("@-radium-piece") TextureRegion radiumPieceRegion;
+    public @Load("@") TextureRegion topRegion;
     public Ionizer(String name){
         super(name);
     }
