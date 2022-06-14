@@ -1,18 +1,22 @@
 package moredefences.world.blocks.production;
 
-import arc.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
+import arc.math.geom.*;
+import arc.struct.*;
 import arc.util.*;
 import arc.util.io.*;
-import mindustry.annotations.Annotations.*;
+import mindustry.content.*;
+import mindustry.entities.*;
+import mindustry.entities.units.*;
 import mindustry.gen.*;
-import mindustry.graphics.*;
 import mindustry.logic.*;
 import mindustry.type.*;
 import mindustry.world.*;
-import mindustry.world.consumers.*;
+import mindustry.world.draw.*;
 import mindustry.world.meta.*;
+
+import moredefences.content.items.*;
 
 public class Ionizer extends GenericCrafter{
     public @Load("@-bottom") TextureRegion bottomRegion;
@@ -28,7 +32,6 @@ public class Ionizer extends GenericCrafter{
     public class IonizerBuild extends GenericCrafterBuild{
         @Override
         public void draw(){
-            
             Draw.alpha(1);
             Draw.rect(bottomRegion, x, y);
             
