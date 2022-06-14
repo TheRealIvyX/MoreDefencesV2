@@ -1,22 +1,22 @@
 package moredefences.world.blocks.production;
 
+import arc.*;
+import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
-import arc.math.geom.*;
-import arc.struct.*;
 import arc.util.*;
-import arc.util.io.*;
+import moredefences.content.*;
 import mindustry.content.*;
 import mindustry.entities.*;
-import mindustry.entities.units.*;
+import mindustry.game.*;
 import mindustry.gen.*;
-import mindustry.logic.*;
+import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.world.*;
-import mindustry.world.draw.*;
+import mindustry.world.blocks.environment.*;
+import mindustry.world.blocks.production.*;
+import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
-
-import moredefences.content.items.*;
 
 public class Ionizer extends GenericCrafter{
     public @Load("@-bottom") TextureRegion bottomRegion;
