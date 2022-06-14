@@ -5,7 +5,7 @@ import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.util.*;
-import mindustry.content.items.*;
+import mindustry.content.*;
 import mindustry.entities.*;
 import mindustry.game.*;
 import mindustry.gen.*;
@@ -17,7 +17,7 @@ import mindustry.world.blocks.production.*;
 import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
 
-import moredefences.content.items.*;
+import moredefences.content.*;
 
 public class Ionizer extends GenericCrafter{
     public TextureRegion bottomRegion = Core.atlas.find(name + "-bottom");
