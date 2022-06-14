@@ -52,7 +52,7 @@ public class Ionizer extends GenericCrafter{
             Draw.rect(radiumPieceRegion, x, y);
           
             Draw.alpha(1);
-            super.draw();
+            Draw.rect(topRegion, x, y);
         }
     }
 }
