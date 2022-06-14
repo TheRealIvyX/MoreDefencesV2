@@ -5,8 +5,7 @@ import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.util.*;
-import moredefences.content.items;
-import mindustry.content.items;
+import mindustry.content.items.*;
 import mindustry.entities.*;
 import mindustry.game.*;
 import mindustry.gen.*;
@@ -18,14 +17,16 @@ import mindustry.world.blocks.production.*;
 import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
 
+import moredefences.content.items.*;
+
 public class Ionizer extends GenericCrafter{
-    public @Load("@-bottom") TextureRegion bottomRegion;
-    public @Load("@-graphite") TextureRegion graphiteRegion;
-    public @Load("@-beams") TextureRegion beamRegion;
-    public @Load("@-radium") TextureRegion radiumRegion;
-    public @Load("@-lead") TextureRegion leadRegion;
-    public @Load("@-radium-piece") TextureRegion radiumPieceRegion;
-    public @Load("@") TextureRegion topRegion;
+    public TextureRegion bottomRegion = Core.atlas.find(name + "-bottom");
+    public TextureRegion graphiteRegion = Core.atlas.find(name + "-graphite");
+    public TextureRegion beamRegion = Core.atlas.find(name + "-beams");
+    public TextureRegion radiumRegion = Core.atlas.find(name + "-radium");
+    public TextureRegion leadRegion = Core.atlas.find(name + "-lead");
+    public TextureRegion radiumPieceRegion = Core.atlas.find(name + "-radium-piece");
+    public TextureRegion topRegion = Core.atlas.find(name);
     public Ionizer(String name){
         super(name);
     }
