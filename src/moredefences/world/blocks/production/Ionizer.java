@@ -6,7 +6,7 @@ import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.util.*;
 import mindustry.content.*;
-import moredefences.content.items.MDItems;
+import moredefences.content.items.MDItems; // thanks to Mnemotechnician#9967 for helping making this work
 import mindustry.entities.*;
 import mindustry.game.*;
 import mindustry.gen.*;
