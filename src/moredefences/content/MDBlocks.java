@@ -28,7 +28,8 @@ import mindustry.world.meta.*;
 import moredefences.content.bullets.*;
 import moredefences.content.items.*;
 
-import moredefences.world.blocks.production.*;
+// import moredefences.world.blocks.production.*;
+import moredefences.world.draw.*;
 
 import static mindustry.Vars.*;
 import static mindustry.type.ItemStack.*;
