@@ -19,12 +19,12 @@ import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
 
 public class Ionizer extends GenericCrafter{
-    public TextureRegion bottomRegion, graphiteRegion, beamRegion, radiumRegion, leadRegion, radiumPieceRegion, topRegion;
     public Ionizer(String name){
         super(name);
     }
     public class IonizerBuild extends GenericCrafterBuild{
         public void load(){
+            public TextureRegion bottomRegion, graphiteRegion, beamRegion, radiumRegion, leadRegion, radiumPieceRegion, topRegion;
             bottomRegion = Core.atlas.find(name + "-bottom");
             graphiteRegion = Core.atlas.find(name + "-graphite");
             beamRegion = Core.atlas.find(name + "-beams");
