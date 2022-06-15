@@ -28,6 +28,9 @@ import mindustry.world.meta.*;
 import moredefences.content.bullets.*;
 import moredefences.content.items.*;
 
+// import moredefences.world.blocks.production.*;
+import moredefences.world.draw.*;
+
 import static mindustry.Vars.*;
 import static mindustry.type.ItemStack.*;
 
@@ -36,7 +39,11 @@ public class MDBlocks{
 
     // turrets
     multishot, beehive, bubbler, carbine, cluster, coilgun, firenado, hellfire, instant, minelayer, shrapnel,
-    tearer;
+    tearer,
+    // production - drills
+    coalExtractor, farmer, frigid, largeWext, nickelExtractor, thoriumExtractor,
+    // production - crafters
+    filter, ionizer, sifter, sterilizer, tinRefurbish;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -90,8 +97,8 @@ public class MDBlocks{
                 Items.titanium, 25,
                 Items.metaglass, 75
             ));
-            size = 2;
-            health = 600;
+            size = 3;
+            health = 1720;
             reload = 3;
             inaccuracy = 45f;
             range = 200f;
@@ -137,7 +144,7 @@ public class MDBlocks{
             size = 4;
             health = 1600;
             reload = 90;
-            inaccuracy = 3f;
+            inaccuracy = 6f;
             range = 360f;
             rotateSpeed = 4f;
             recoil = 6f;
@@ -324,6 +331,233 @@ public class MDBlocks{
                 Items.scrap, MDBullets.tearerScrap,
                 Items.lead, MDBullets.tearerLead
             );
+        }};
+        // production - drills
+        coalExtractor = new GenericCrafter("coal-extractor"){{
+            requirements(Category.production, with(
+                Items.copper, 30,
+                Items.lead, 40,
+                Items.graphite, 30
+            ));
+            size = 2;
+            health = 200;
+            hasPower = true;
+            hasItems = true;
+            craftTime = 180f;
+
+            consumePower(0.35f);
+            
+            outputItem = new ItemStack(Items.coal, 1);
+        }};
+        farmer = new AttributeCrafter("farmer"){{
+            requirements(Category.production, with(
+                Items.copper, 30,
+                Items.lead, 50,
+                Items.graphite, 35,
+                Items.silicon, 25,
+                Items.plastanium, 10
+            ));
+            size = 3;
+            health = 600;
+            hasLiquids = true;
+            hasPower = true;
+            hasItems = true;
+            itemCapacity = 30;
+            liquidCapacity = 100f;
+
+            craftEffect = Fx.none;
+            envRequired |= Env.spores;
+            attribute = Attribute.spores;
+
+            legacyReadWarmup = true;
+            drawer = new DrawMulti(
+                new DrawDefault(),
+                new DrawCultivator(),
+                new DrawRegion("-top")
+            );
+            maxBoost = 2f;
+
+            craftTime = 100;
+            consumePower(125f / 60f);
+            consumeLiquid(Liquids.water, 36f / 60f);
+            
+            outputItem = new ItemStack(Items.sporePod, 3);
+        }};
+        frigid = new SolidPump("frigid"){{
+            requirements(Category.production, with(
+                MDItems.cobalt, 35,
+                Items.metaglass, 65,
+                Items.plastanium, 45
+            ));
+            size = 3;
+            health = 420;
+            hasPower = true;
+            pumpAmount = 0.08f;
+            updateEffect = Fx.shootBigSmoke;
+            // drillEffect = Fx.freezing;
+            liquidCapacity = 20f;
+            rotateSpeed = 0f;
+            result = Liquids.cryofluid;
+
+            consumePower(3f);
+        }};
+        largeWext = new SolidPump("large-water-extractor"){{
+            requirements(Category.production, with(
+                Items.lead, 60,
+                Items.graphite, 60,
+                Items.silicon, 50,
+                Items.titanium, 45,
+                Items.plastanium, 60,
+                Items.thorium, 60
+            ));
+            size = 3;
+            health = 360;
+            hasPower = true;
+            pumpAmount = 0.3f;
+            liquidCapacity = 120f;
+            rotateSpeed = 1.2f;
+            attribute = Attribute.water;
+            result = Liquids.water;
+
+            consumePower(210f / 60f);
+        }};
+        nickelExtractor = new GenericCrafter("nickel-extractor"){{
+            requirements(Category.production, with(
+                Items.copper, 20,
+                Items.lead, 10,
+                Items.graphite, 10
+            ));
+            size = 2;
+            health = 200;
+            hasPower = true;
+            hasItems = true;
+            craftTime = 150f;
+            drawer = new DrawMulti(new DrawDefault(), new DrawRegion("-rotator"){{
+                spinSprite = true;
+                rotateSpeed = 3.91f;
+            }}, new DrawRegion("-top"));
+
+            consumePower(0.4f);
+            
+            outputItem = new ItemStack(MDItems.nickel, 1);
+        }};
+        thoriumExtractor = new GenericCrafter("thorium-extractor"){{
+            requirements(Category.production, with(
+                Items.titanium, 60,
+                Items.graphite, 90,
+                Items.silicon, 90,
+                Items.copper, 110,
+                Items.thorium, 30
+            ));
+            size = 3;
+            health = 200;
+            hasPower = true;
+            hasItems = true;
+            hasLiquids = true;
+            craftTime = 400f;
+
+            consumePower(2.25f);
+            consumeLiquid(Liquids.cryofluid, 10f / 60f);
+            
+            outputItem = new ItemStack(Items.thorium, 1);
+        }};
+        // production - crafters
+        filter = new GenericCrafter("filter"){{
+            requirements(Category.crafting, with(
+                Items.copper, 45
+            ));
+            size = 1;
+            health = 40;
+            hasPower = true;
+            hasItems = true;
+            craftTime = 6f;
+            
+            consumeItem(Items.sand, 2);
+            //consumeItems(with(Items.tungsten, 2, Items.graphite, 3));
+            
+            outputItem = new ItemStack(MDItems.tin, 1);
+        }};
+        ionizer = new GenericCrafter("ionizer"){{
+            requirements(Category.crafting, with(
+                Items.lead, 35,
+                Items.graphite, 25,
+                Items.thorium, 60,
+                Items.plastanium, 20
+            ));
+            size = 2;
+            health = 160;
+            hasPower = true;
+            hasItems = true;
+            craftTime = 30f;
+            itemCapacity = 30;
+            updateEffect = Fx.none;
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawIonizer(), new DrawDefault());
+
+            consumePower(1f);
+            consumeItems(with(Items.graphite, 1, Items.lead, 2));
+            
+            outputItem = new ItemStack(MDItems.radium, 3);
+        }};
+        sifter = new GenericCrafter("sifter"){{
+            requirements(Category.crafting, with(
+                Items.copper, 40,
+                Items.lead, 30
+            ));
+            size = 1;
+            health = 40;
+            hasPower = true;
+            hasItems = true;
+            craftTime = 6f;
+            itemCapacity = 30;
+            
+            consumeItem(Items.sand, 7);
+            
+            outputItem = new ItemStack(Items.scrap, 2);
+        }};
+        sterilizer = new GenericCrafter("sterilizer"){{
+            requirements(Category.crafting, with(
+                MDItems.tin, 80,
+                Items.graphite, 120,
+                Items.titanium, 80,
+                Items.plastanium, 90,
+                MDItems.radium, 70
+            ));
+            size = 3;
+            health = 720;
+            hasPower = true;
+            hasItems = true;
+            hasLiquids = true;
+            craftTime = 60f;
+            itemCapacity = 30;
+            updateEffect = Fx.fuelburn;
+            drawer = new DrawMulti(new DrawDefault(), new DrawRegion("-rotator"){{
+                rotateSpeed = 3.4f;
+            }}, new DrawRegion("-top"));
+
+            consumePower(3f);
+            consumeItems(with(MDItems.radium, 3, Items.sand, 12));
+            consumeLiquid(Liquids.oil, 0.15f);
+            
+            outputItem = new ItemStack(MDItems.radiode, 3);
+        }};
+        tinRefurbish = new GenericCrafter("tin-refurbish"){{
+            requirements(Category.crafting, with(
+                MDItems.tin, 20,
+                Items.copper, 35,
+                Items.lead, 25
+            ));
+            size = 2;
+            health = 170;
+            hasPower = true;
+            hasItems = true;
+            hasLiquids = true;
+            craftTime = 45f;
+            
+            consumePower(0.5f);
+            consumeItem(MDItems.tin, 2);
+            consumeLiquid(Liquids.water, 0.02f);
+            
+            outputItem = new ItemStack(MDItems.aluminum, 1);
         }};
     }
 }
