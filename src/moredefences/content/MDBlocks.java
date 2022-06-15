@@ -491,9 +491,7 @@ public class MDBlocks{
             craftTime = 30f;
             itemCapacity = 30;
             updateEffect = Fx.none;
-            /*drawer = new DrawMulti(new DrawDefault(), new DrawRegion("-rotator"){{
-                rotateSpeed = 3.4f;
-            }}, new DrawRegion("-top"));*/
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawIonizer(), new DrawDefault());
 
             consumePower(1f);
             consumeItems(with(Items.graphite, 1, Items.lead, 2));
