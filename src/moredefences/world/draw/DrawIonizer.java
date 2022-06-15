@@ -1,4 +1,4 @@
-package mindustry.world.draw;
+package moredefences.world.draw;
 
 import arc.*;
 import arc.graphics.*;
@@ -25,7 +25,7 @@ public class DrawIonizer extends DrawBlock{
         Draw.rect(graphiteRegion, build.x, build.y);
             
         Draw.alpha(0);
-        if (build.items.get(Items.graphite) >= 1 && build.items.get(Items.lead) >= 2 && build.power.status == 1f) {Draw.alpha(1)};
+        if (build.items.get(Items.graphite) >= 1 && build.items.get(Items.lead) >= 2 && build.power.status == 1f) {Draw.alpha(1);};
         Draw.rect(beamRegion, build.x, build.y);
           
         Draw.alpha(build.items.get(MDItems.radium) / build.itemCapacity);
