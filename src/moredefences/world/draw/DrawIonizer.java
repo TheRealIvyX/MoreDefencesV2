@@ -20,20 +20,20 @@ public class DrawIonizer extends DrawBlock{
     public TextureRegion graphiteRegion, beamRegion, radiumRegion, leadRegion, radiumPieceRegion;
     @Override
     public void draw(Building build){
-        Draw.alpha(build.items.get(Items.graphite) / /*build.itemCapacity*/30);
+        Draw.alpha((float)build.items.get(Items.graphite) / /*build.itemCapacity*/30f);
         Draw.rect(graphiteRegion, build.x, build.y);
             
         Draw.alpha(0);
         if (build.items.get(Items.graphite) >= 1 && build.items.get(Items.lead) >= 2 && build.power.status == 1f) {Draw.alpha(1);};
         Draw.rect(beamRegion, build.x, build.y);
           
-        Draw.alpha(build.items.get(MDItems.radium) / 30);
+        Draw.alpha((float)build.items.get(MDItems.radium) / 30f);
         Draw.rect(radiumRegion, build.x, build.y);
             
-        Draw.alpha(build.items.get(Items.lead) / 30);
+        Draw.alpha((float)build.items.get(Items.lead) / 30f);
         Draw.rect(leadRegion, build.x, build.y);
           
-        Draw.alpha(build.items.get(MDItems.radium) / 30);
+        Draw.alpha((float)build.items.get(MDItems.radium) / 30f);
         Draw.rect(radiumPieceRegion, build.x, build.y);
       
         Draw.alpha(1);
