@@ -12,8 +12,7 @@ import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.world.*;
-import mindustry.world.blocks.environment.*;
-import mindustry.world.blocks.production.*;
+import mindustry.world.draw.*;
 import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
 
