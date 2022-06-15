@@ -96,8 +96,8 @@ public class MDBlocks{
                 Items.titanium, 25,
                 Items.metaglass, 75
             ));
-            size = 2;
-            health = 600;
+            size = 3;
+            health = 1720;
             reload = 3;
             inaccuracy = 45f;
             range = 200f;
