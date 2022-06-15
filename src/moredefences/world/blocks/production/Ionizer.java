@@ -25,9 +25,7 @@ public class Ionizer extends GenericCrafter{
     }
     public class IonizerBuild extends GenericCrafterBuild{
         @Override
-        public void load(Block block){
-            super.load(block);
-            
+        public void load(){
             bottomRegion = Core.atlas.find(name + "-bottom");
             graphiteRegion = Core.atlas.find(name + "-graphite");
             beamRegion = Core.atlas.find(name + "-beams");
