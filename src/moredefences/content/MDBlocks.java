@@ -144,13 +144,13 @@ public class MDBlocks{
             size = 4;
             health = 1600;
             reload = 90;
-            inaccuracy = 6f;
             range = 360f;
             rotateSpeed = 4f;
             recoil = 6f;
             shootSound = Sounds.artillery;
             ammoUseEffect = Fx.casing3Double;
             velocityRnd = 0.3f;
+            inaccuracy = 12f;
             ammoPerShot = 5;
             shake = 3.25f;
             cooldownTime = 0.03f;
