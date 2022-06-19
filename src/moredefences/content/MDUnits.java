@@ -400,5 +400,6 @@ public class MDUnits{
                 }};
             }});
         }};
+        Blocks.groundFactory.plans.add(new UnitFactory.UnitPlan(cannoneer, 60 * 25, ItemStack.with(Items.silicon, 30, Items.graphite, 15)));
     }
 }
