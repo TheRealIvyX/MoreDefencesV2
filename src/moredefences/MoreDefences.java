@@ -39,6 +39,19 @@ public class MoreDefences extends Mod{
                 dialog.show();
             });
         });
+        // "borrowed" from erekir expansion (EmanuelG-Gaming/erekir-expansion)
+        Events.on(ContentInitEvent.class, e -> {
+           // add unit lines to factories and reconstructors
+           // cannoneer unit line
+           addToFabricator(
+              Blocks.groundFactory,
+              new UnitFactory.UnitPlan(MDUnits.cannoneer, (float) 25 * 60, with(Items.silicon, 30, Items.graphite, 15))
+           );
+           addToReconstructor(Blocks.additiveReconstructor, MDUnits.cannoneer, MDUnits.artilleryman);
+           addToReconstructor(Blocks.multiplicativeReconstructor, MDUnits.artilleryman, MDUnits.ordnance);
+           addToReconstructor(Blocks.exponentialReconstructor, MDUnits.ordnance, MDUnits.mortar);
+           addToReconstructor(Blocks.tetrativeReconstructor, MDUnits.mortar, MDUnits.howitzer);
+        });
     }
     
     @Override
@@ -62,5 +75,21 @@ public class MoreDefences extends Mod{
         //MDPlanets.load();
         //MDTechTree.load();
     }
-
+    // also "borrowed" from erekir expansion
+    public void addToFabricator(Block bloc, UnitFactory.UnitPlan plan) {
+        if (!(bloc instanceof UnitFactory)) return;
+        
+        UnitFactory factory = (UnitFactory) bloc;
+        factory.plans.add(plan);
+        
+        factory.configurable = true;
+        factory.init();
+    }
+    
+    public void addToReconstructor(Block bloc, UnitType unit, UnitType upgrade) {
+        if (!(bloc instanceof Reconstructor)) return;
+        
+        Reconstructor recon = (Reconstructor) bloc;
+        recon.addUpgrade(unit, upgrade);
+    }
 }
