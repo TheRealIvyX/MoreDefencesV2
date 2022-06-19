@@ -68,6 +68,13 @@ public class PMUnitTypes{
         return idMap.get(type, -1);
     }
 
+    /* notes to self
+    MechUnit::create; for ground units
+    constructor = UnitEntity::create; for air units
+    UnitWaterMove::create; for naval units
+    LegsUnit::create; for spider units
+    */
+    
     public static UnitType
 
     // cannoneer unit line
@@ -82,6 +89,7 @@ public class PMUnitTypes{
             flying = false;
             itemCapacity = 10f;
             range = 224f;
+            constructor = MechUnit::create;
 
             weapons.add(new Weapon("cannoneer-weapon"){{
                 top = false;
@@ -102,6 +110,5 @@ public class PMUnitTypes{
                 }};
             }});
         }};
-        };
     }
 }
