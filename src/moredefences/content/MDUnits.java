@@ -129,6 +129,7 @@ public class MDUnits{
                 y = 0f;
                 reload = 60f;
                 ejectEffect = Fx.casing1;
+                shootSound = Sounds.artillery;
                 velocityRnd = 0.2f;
                 inaccuracy = 7f;
                 shake = 1f;
@@ -176,6 +177,7 @@ public class MDUnits{
                 y = 0f;
                 reload = 90f;
                 ejectEffect = Fx.casing1;
+                shootSound = Sounds.artillery;
                 inaccuracy = 0f;
                 shake = 1f;
 
@@ -237,11 +239,12 @@ public class MDUnits{
                 y = -8f;
                 reload = 260f;
                 ejectEffect = Fx.casing1;
-                inaccuracy = 7f;
+                shootSound = Sounds.artillery;
+                inaccuracy = 0f;
                 shake = 5f;
 
                 bullet = new ArtilleryBulletType(3f, 0f){{ // speed, dmg
-                    splashDamage = 250f;
+                    splashDamage = 200f;
                     splashDamageRadius = 90f;
                     knockback = 2.4f;
                     hitEffect = Fx.flakExplosion;
@@ -277,6 +280,126 @@ public class MDUnits{
                             lifetime = 10f;
                         }};
                     }};
+                }};
+            }});
+        }};
+        howitzer = new UnitType("howitzer-mech"){{
+            health = 18000f;
+            speed = 0.2f;
+            flying = false;
+            hitSize = 30f;
+            armor = 10f;
+            itemCapacity = 140;
+            range = 480f;
+            constructor = LegsUnit::create;
+            legCount = 7;
+            legLength = 30f;
+            legForwardScl = 0.8f;
+            legMoveSpace = 0.7f;
+            legPairOffset = 3f;
+            legBaseOffset = 8f;
+            legExtension = -20f;
+            allowLegStep = true;
+            legSpeed = 0.06f;
+            shadowElevation = 0.5f;
+            hovering = true;
+            rotateSpeed = 3f;
+
+            weapons.add(new Weapon("moredefences-howitzer-cannon"){{
+                top = true;
+                rotate = true;
+                mirror = false;
+                x = 0f;
+                y = -15f;
+                reload = 300f;
+                ejectEffect = Fx.casing1;
+                shootSound = Sounds.artillery;
+                inaccuracy = 3f;
+                rotateSpeed = 1f;
+                shake = 15f;
+                shoot = new ShootSpread(3, 15f);
+
+                bullet = new ArtilleryBulletType(4f, 0f){{ // speed, dmg
+                    splashDamage = 150f;
+                    splashDamageRadius = 120f;
+                    knockback = 3.5f;
+                    hitEffect = Fx.flakExplosion;
+                    width = 18f;
+                    height = 18f;
+                    collidesTiles = false;
+                    collides = true;
+                    frontColor = Color.valueOf("ffffff");
+                    backColor = Color.valueOf("95db00");
+                    lifetime = 120f;
+                    status = StatusEffects.corroded;
+                    hitShake = 12f;
+                    fragBullets = 17;
+                    fragRandomSpread = 120f;
+                    fragBullet = new ArtilleryBulletType(6f, 0f){{ // speed, dmg
+                        width = 6f;
+                        height = 9f;
+                        splashDamage = 25f;
+                        splashDamageRadius = 44f;
+                        frontColor = Color.valueOf("ffffff");
+                        backColor = Color.valueOf("95db00");
+                        collidesTiles = false;
+                        collides = true;
+                        status = StatusEffects.corroded;
+                        homingPower = 0.2f;
+                        homingRange = 96f;
+                        lifetime = 30f;
+                        hitShake = 5f;
+                    }};
+                }};
+            }});
+            weapons.add(new Weapon("moredefences-cannoneer-weapon"){{
+                top = true;
+                rotate = true;
+                mirror = true;
+                x = 12f;
+                y = 7f;
+                reload = 20f;
+                ejectEffect = Fx.casing1;
+                shootSound = Sounds.missile;
+                inaccuracy = 3f;
+
+                bullet = new MissileBulletType(6f, 45f){{ // speed, dmg
+                    splashDamage = 150f;
+                    splashDamageRadius = 120f;
+                    knockback = 3.5f;
+                    hitEffect = Fx.flakExplosion;
+                    width = 7f;
+                    height = 8f;
+                    frontColor = Color.valueOf("ffffff");
+                    backColor = Color.valueOf("95db00");
+                    trailColor = Color.valueOf("95db00");
+                    lifetime = 60f;
+                    status = StatusEffects.corroded;
+                }};
+            }});
+            weapons.add(new Weapon("moredefences-artilleryman-weapon"){{
+                top = true;
+                rotate = true;
+                mirror = true;
+                x = 18f;
+                y = -5f;
+                reload = 25f;
+                ejectEffect = Fx.casing1;
+                shootSound = Sounds.missile;
+                inaccuracy = 3f;
+
+                bullet = new MissileBulletType(2.5f, 99f){{ // speed, dmg
+                    splashDamage = 150f;
+                    splashDamageRadius = 120f;
+                    knockback = 3.5f;
+                    hitEffect = Fx.flakExplosion;
+                    width = 7f;
+                    height = 8f;
+                    frontColor = Color.valueOf("ffffff");
+                    backColor = Color.valueOf("95db00");
+                    trailColor = Color.valueOf("95db00");
+                    lifetime = 60f;
+                    status = StatusEffects.corroded;
                 }};
             }});
         }};
