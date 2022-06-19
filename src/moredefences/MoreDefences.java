@@ -15,6 +15,7 @@ import mindustry.ui.dialogs.SettingsMenuDialog.*;
 import mindustry.ui.dialogs.SettingsMenuDialog.SettingsTable.*;
 import mindustry.content.*;
 import mindustry.world.*;
+import mindustry.world.blocks.units.*;
 
 import static arc.Core.*;
 import static mindustry.Vars.*;
