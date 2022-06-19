@@ -14,7 +14,7 @@ import mindustry.type.*;
 import mindustry.world.meta.*;
 
 @SuppressWarnings("unchecked")
-public class PMUnitTypes{
+public class MDUnits{
     // "borrowed" from progression ministry, which "borrowed" from endless rusting, which "borrowed" from progression ministry, which "borrowed" from betamindy
     // temporarily disabled since no new unit types have been added yet
     /*private static final Entry<Class<? extends Entityc>, Prov<? extends Entityc>>[] types = new Entry[]{
@@ -81,7 +81,7 @@ public class PMUnitTypes{
     cannoneer;
 
     public static void load(){
-        setupID();
+        //setupID();
         // cannoneer unit line
         cannoneer = new UnitType("cannoneer-mech"){{
             health = 140f;
