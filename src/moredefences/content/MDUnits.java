@@ -110,5 +110,44 @@ public class MDUnits{
                 }};
             }});
         }};
+        artilleryman = new UnitType("artilleryman-mech"){{
+            health = 500f;
+            speed = 0.3f;
+            flying = false;
+            hitSize = 11f;
+            itemCapacity = 25;
+            range = 280f;
+            constructor = MechUnit::create;
+            targetAir = false;
+
+            weapons.add(new Weapon("moredefences-artilleryman-weapon"){{
+                top = true;
+                rotate = false;
+                alternate = true;
+                x = 5.6f;
+                y = 0f;
+                reload = 60f;
+                ejectEffect = Fx.casing1;
+                velocityRnd = 0.2f;
+                inaccuracy = 7f;
+                shake = 1f;
+                shoot = new ShootSpread(3, 0f);
+
+                bullet = new ArtilleryBulletType(5f, 0f){{ // speed, dmg
+                    splashDamage = 20f;
+                    splashDamageRadius = 25f;
+                    knockback = 0.8f;
+                    hitEffect = Fx.flakExplosion;
+                    width = 8f;
+                    height = 8f;
+                    collidesTiles = true;
+                    collides = true;
+                    frontColor = Color.valueOf("aeff00");
+                    backColor = Color.valueOf("95db00");
+                    lifetime = 56f;
+                    status = StatusEffects.corroded;
+                }};
+            }});
+        }};
     }
 }
