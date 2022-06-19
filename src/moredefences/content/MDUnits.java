@@ -400,6 +400,6 @@ public class MDUnits{
                 }};
             }});
         }};
-        ((Reconstructor) Blocks.additiveReconstructor).upgrades.addAll(new UnitType[]{MDUnits.cannoneer, MDUnits.artilleryman});
+        ((Reconstructor) Blocks.additiveReconstructor).upgrades.addAll(new UnitType[]{cannoneer, artilleryman});
     }
 }
