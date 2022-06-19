@@ -301,7 +301,7 @@ public class MDUnits{
             legExtension = -20f;
             allowLegStep = true;
             legSpeed = 0.06f;
-            landShake = 1f;
+            mechLandShake = 1f;
             shadowElevation = 0.5f;
             hovering = true;
             rotateSpeed = 3f;
