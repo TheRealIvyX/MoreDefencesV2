@@ -61,8 +61,6 @@ public class MoreDefences extends Mod{
         //MDSectors.load();
         //MDPlanets.load();
         //MDTechTree.load();
-        
-        Blocks.groundFactory.plans.add(new UnitFactory.UnitPlan(MDUnits.cannoneer, 60 * 25, ItemStack.with(Items.silicon, 30, Items.graphite, 15)));
     }
 
 }
