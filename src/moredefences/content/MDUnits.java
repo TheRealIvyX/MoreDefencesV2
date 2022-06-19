@@ -222,6 +222,7 @@ public class MDUnits{
             legMoveSpace = 1f;
             legPairOffset = 3f;
             legBaseOffset = 10f;
+            legExtension = -15f;
             allowLegStep = true;
             legSpeed = 0.1f;
             shadowElevation = 0.5f;
