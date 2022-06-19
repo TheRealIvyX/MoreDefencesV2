@@ -8,6 +8,7 @@ import arc.struct.*;
 import arc.struct.ObjectMap.*;
 import mindustry.content.*;
 import mindustry.entities.bullet.*;
+import mindustry.entities.pattern.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
