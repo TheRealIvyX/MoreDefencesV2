@@ -16,9 +16,11 @@ import mindustry.ui.dialogs.SettingsMenuDialog.SettingsTable.*;
 import mindustry.content.*;
 import mindustry.world.*;
 import mindustry.world.blocks.units.*;
+import mindustry.type.*;
 
 import static arc.Core.*;
 import static mindustry.Vars.*;
+import static mindustry.type.ItemStack.with;
 
 import moredefences.content.items.*;
 import moredefences.content.bullets.*;
