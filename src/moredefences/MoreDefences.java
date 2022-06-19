@@ -55,7 +55,7 @@ public class MoreDefences extends Mod{
         //MDLiquids.load();
         MDItems.load();
         MDBullets.load();
-        //MDUnits.load();
+        MDUnits.load();
         MDBlocks.load();
         //MDSectors.load();
         //MDPlanets.load();
