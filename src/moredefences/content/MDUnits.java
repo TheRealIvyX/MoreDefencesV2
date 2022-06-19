@@ -91,7 +91,7 @@ public class MDUnits{
             range = 224f;
             constructor = MechUnit::create;
 
-            weapons.add(new Weapon("cannoneer-weapon"){{
+            weapons.add(new Weapon("moredefences-cannoneer-weapon"){{
                 top = false;
                 rotate = false;
                 alternate = true;
