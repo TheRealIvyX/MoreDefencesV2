@@ -293,7 +293,7 @@ public class MDUnits{
             range = 480f;
             constructor = LegsUnit::create;
             legCount = 7;
-            legLength = 30f;
+            legLength = 75f;
             legForwardScl = 0.8f;
             legMoveSpace = 0.7f;
             legPairOffset = 3f;
@@ -301,6 +301,7 @@ public class MDUnits{
             legExtension = -20f;
             allowLegStep = true;
             legSpeed = 0.06f;
+            landShake = 1f;
             shadowElevation = 0.5f;
             hovering = true;
             rotateSpeed = 3f;
@@ -317,7 +318,7 @@ public class MDUnits{
                 inaccuracy = 3f;
                 rotateSpeed = 1f;
                 shake = 15f;
-                shoot = new ShootSpread(3, 15f);
+                shoot = new ShootSpread(3, 7.5f);
 
                 bullet = new ArtilleryBulletType(4f, 0f){{ // speed, dmg
                     splashDamage = 150f;
@@ -364,8 +365,6 @@ public class MDUnits{
                 inaccuracy = 3f;
 
                 bullet = new MissileBulletType(6f, 45f){{ // speed, dmg
-                    splashDamage = 150f;
-                    splashDamageRadius = 120f;
                     knockback = 3.5f;
                     hitEffect = Fx.flakExplosion;
                     width = 7f;
@@ -389,8 +388,6 @@ public class MDUnits{
                 inaccuracy = 3f;
 
                 bullet = new MissileBulletType(2.5f, 99f){{ // speed, dmg
-                    splashDamage = 150f;
-                    splashDamageRadius = 120f;
                     knockback = 3.5f;
                     hitEffect = Fx.flakExplosion;
                     width = 7f;
