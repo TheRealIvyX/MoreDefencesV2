@@ -79,7 +79,7 @@ public class MDUnits{
     public static UnitType
 
     // cannoneer unit line
-    cannoneer;
+    cannoneer, artilleryman, ordnance, mortar, howitzer;
 
     public static void load(){
         //setupID();
