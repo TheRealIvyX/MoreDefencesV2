@@ -19,6 +19,7 @@ import static mindustry.Vars.*;
 
 import moredefences.content.items.*;
 import moredefences.content.bullets.*;
+import moredefences.content.units.*;
 import moredefences.content.blocks.*;
 
 public class MoreDefences extends Mod{
