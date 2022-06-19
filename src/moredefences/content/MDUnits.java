@@ -87,7 +87,7 @@ public class MDUnits{
             health = 140f;
             speed = 0.5f;
             flying = false;
-            itemCapacity = 10f;
+            itemCapacity = 10;
             range = 224f;
             constructor = MechUnit::create;
 
