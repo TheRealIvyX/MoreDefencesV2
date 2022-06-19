@@ -91,6 +91,7 @@ public class MDUnits{
             itemCapacity = 10;
             range = 224f;
             constructor = MechUnit::create;
+            immunities.addAll(StatusEffects.corroded);
 
             weapons.add(new Weapon("moredefences-cannoneer-weapon"){{
                 top = false;
@@ -119,6 +120,7 @@ public class MDUnits{
             itemCapacity = 25;
             range = 280f;
             constructor = MechUnit::create;
+            immunities.addAll(StatusEffects.corroded);
             targetAir = false;
 
             weapons.add(new Weapon("moredefences-artilleryman-weapon"){{
@@ -160,6 +162,7 @@ public class MDUnits{
             itemCapacity = 40;
             range = 260f;
             constructor = LegsUnit::create;
+            immunities.addAll(StatusEffects.corroded);
             targetAir = false;
             legCount = 4;
             legLength = 13f;
@@ -217,6 +220,7 @@ public class MDUnits{
             itemCapacity = 90;
             range = 360f;
             constructor = LegsUnit::create;
+            immunities.addAll(StatusEffects.corroded);
             targetAir = false;
             legCount = 5;
             legLength = 30f;
@@ -292,6 +296,7 @@ public class MDUnits{
             itemCapacity = 140;
             range = 480f;
             constructor = LegsUnit::create;
+            immunities.addAll(StatusEffects.corroded);
             legCount = 7;
             legLength = 75f;
             legForwardScl = 0.8f;
