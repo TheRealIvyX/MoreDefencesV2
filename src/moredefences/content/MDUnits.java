@@ -150,5 +150,54 @@ public class MDUnits{
                 }};
             }});
         }};
+        ordnance = new UnitType("ordnance-mech"){{
+            health = 900f;
+            speed = 0.6f;
+            flying = false;
+            hitSize = 15f;
+            armor = 6f;
+            itemCapacity = 40;
+            range = 260f;
+            constructor = LegsUnit::create;
+            targetAir = false;
+
+            weapons.add(new Weapon("moredefences-ordnance-cannon"){{
+                top = true;
+                rotate = false;
+                mirror = false;
+                x = 0f;
+                y = 0f;
+                reload = 90f;
+                ejectEffect = Fx.casing1;
+                velocityRnd = 0.2f;
+                inaccuracy = 7f;
+                shake = 1f;
+                shoot = new ShootSpread(3, 0f);
+
+                bullet = new ArtilleryBulletType(4f, 0f){{ // speed, dmg
+                    splashDamage = 80f;
+                    splashDamageRadius = 40f;
+                    knockback = 1.75f;
+                    hitEffect = Fx.flakExplosion;
+                    width = 15f;
+                    height = 15f;
+                    frontColor = Color.valueOf("aeff00");
+                    backColor = Color.valueOf("95db00");
+                    lifetime = 80f;
+                    status = StatusEffects.corroded;
+                    hitShake = 1f;
+                    fragBullets = 7;
+                    fragRandomSpread = 60f;
+                    fragBullet = new BasicBulletType(5f, 3f){{ // speed, dmg
+                        width = 2f;
+                        height = 2.8f;
+                        frontColor = Color.valueOf("aeff00");
+                        backColor = Color.valueOf("95db00");
+                        status = StatusEffects.corroded;
+                        lifetime = 20f;
+                    }};
+                }};
+            }});
+        }};
     }
 }
