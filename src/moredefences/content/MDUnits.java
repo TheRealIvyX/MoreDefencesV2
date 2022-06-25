@@ -79,7 +79,9 @@ public class MDUnits{
     public static UnitType
 
     // cannoneer unit line
-    cannoneer, artilleryman, ordnance, mortar, howitzer;
+    cannoneer, artilleryman, ordnance, mortar, howitzer,
+    // swarmer unit line
+    swarmer, bee, hornet, messenger, communicator;
 
     public static void load(){
         //setupID();
@@ -402,6 +404,43 @@ public class MDUnits{
                     trailColor = Color.valueOf("95db00");
                     lifetime = 60f;
                     status = StatusEffects.corroded;
+                }};
+            }});
+        }};
+        // swarmer unit line
+        swarmer = new UnitType("swarmer-ship"){{
+            health = 200f;
+            armor = 5f;
+            speed = 2f;
+            flying = true;
+            itemCapacity = 0;
+            range = 45f;
+            drag = 0.01f;
+            accel = 0.075f;
+            engineOffset = 6f;
+            rotateSpeed = 5f;
+            constructor = UnitEntity::create;
+            targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, null};
+
+            weapons.add(new Weapon(){{
+                reload = 35f;
+                ejectEffect = Fx.none;
+                shootSound = Sounds.explosion;
+
+                bullet = new BombBulletType(1f, 0f){{ // speed, dmg
+                    sprite = "clear";
+                    width = 0f;
+                    height = 0f;
+                    hitEffect = Fx.pulverize;
+                    lifetime = 10f;
+                    status = StatusEffects.burning;
+                    splashDamageRadius = 50;
+                    splashDamage = 60;
+                    instantDisappear = true;
+                    killShooter = true;
+                    hittable = false;
+                    collidesAir = true;
+                    makeFire = true;
                 }};
             }});
         }};
