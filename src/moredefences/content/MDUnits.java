@@ -426,7 +426,6 @@ public class MDUnits{
             weapons.add(new Weapon(){{
                 reload = 35f;
                 ejectEffect = Fx.none;
-                shootEffect = Fx.flakExplosion;
                 shootSound = Sounds.explosion;
 
                 bullet = new BombBulletType(1f, 0f){{ // speed, dmg
