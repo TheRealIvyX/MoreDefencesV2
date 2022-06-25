@@ -28,7 +28,7 @@ allprojects{
 }
 
 dependencies{
-    compileOnly "com.github.Anuken.MindustryJitpack:core:ac6eff8014"
+    compileOnly "com.github.Anuken.MindustryJitpack:core:75f5e7271e"
     compileOnly "com.github.Anuken.Arc:arc-core:dfcb21ce56"
 
     //you may uncomment this dependency to properly use Java 17 features while still targeting Java 8.
