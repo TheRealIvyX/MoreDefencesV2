@@ -419,12 +419,14 @@ public class MDUnits{
             accel = 0.075f;
             engineOffset = 6f;
             rotateSpeed = 5f;
+            circleTarget = true;
             constructor = UnitEntity::create;
             targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, null};
 
             weapons.add(new Weapon(){{
                 reload = 35f;
                 ejectEffect = Fx.none;
+                shootEffect = Fx.flakExplosion;
                 shootSound = Sounds.explosion;
 
                 bullet = new BombBulletType(1f, 0f){{ // speed, dmg
