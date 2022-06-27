@@ -445,5 +445,39 @@ public class MDUnits{
                 }};
             }});
         }};
+        bee = new UnitType("bee-ship"){{
+            health = 550f;
+            armor = 2f;
+            speed = 2.3f;
+            flying = true;
+            itemCapacity = 10;
+            range = 120f;
+            drag = 0.01f;
+            accel = 0.07f;
+            engineOffset = 7.5f;
+            rotateSpeed = 3f;
+            circleTarget = true;
+            rotateShooting = false;
+            constructor = UnitEntity::create;
+            targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, null};
+
+            weapons.add(new Weapon("moredefences-artillery-mount-2"){{
+                top = true;
+                rotate = true;
+                mirror = true;
+                x = 3f;
+                y = 0f;
+                reload = 2f;
+                alternate = true;
+                inaccuracy = 6f;
+
+                bullet = new BasicBulletType(6f, 6f){{ // speed, dmg
+                    lifetime = 20f;
+                    pierceCap = 2f;
+                    pierceBuilding = true;
+                    buildingDamageMultiplier = 0.666f;
+                }};
+            }});
+        }};
     }
 }
