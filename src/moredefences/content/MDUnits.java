@@ -457,7 +457,7 @@ public class MDUnits{
             engineOffset = 7.5f;
             rotateSpeed = 3f;
             circleTarget = true;
-            rotateShooting = false;
+            faceTarget = false;
             constructor = UnitEntity::create;
             targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, null};
 
@@ -473,7 +473,7 @@ public class MDUnits{
 
                 bullet = new BasicBulletType(6f, 6f){{ // speed, dmg
                     lifetime = 20f;
-                    pierceCap = 2f;
+                    pierceCap = 2;
                     pierceBuilding = true;
                     buildingDamageMultiplier = 0.666f;
                 }};
