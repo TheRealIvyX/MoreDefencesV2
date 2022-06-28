@@ -459,6 +459,7 @@ public class MDUnits{
             rotateSpeed = 3f;
             circleTarget = true;
             faceTarget = false;
+            physics = false; // makes bee unable to collide with other units, making it not glue itself to its target if said target is an air unit
             constructor = UnitEntity::create;
             targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, null};
 
@@ -551,7 +552,7 @@ public class MDUnits{
             range = 250f;
             drag = 0.017f;
             accel = 0.04f;
-            engineOffset = 7.5f;
+            engineOffset = 0f;
             lowAltitude = true;
             rotateSpeed = 2f;
             constructor = UnitEntity::create;
@@ -613,6 +614,101 @@ public class MDUnits{
                         backColor = Color.valueOf("6d56bf");
                         hitShake = 2f;
                     }};
+                }};
+            }});
+        }};
+        communicator = new UnitType("communicator-ship"){{
+            health = 24000f;
+            armor = 9f;
+            speed = 0.5f;
+            flying = true;
+            itemCapacity = 110;
+            hitSize = 100f;
+            range = 560f;
+            drag = 0.005f;
+            accel = 0.02f;
+            engineOffset = 7f;
+            rotateSpeed = 1f;
+            faceTarget = false;
+            constructor = UnitEntity::create;
+            targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, null};
+
+            communicator.abilities.add(new UnitSpawnAbility(hornet, 60*65, 0, 26));
+            communicator.abilities.add(new UnitSpawnAbility(bee, 60*25, 13, -16));
+            communicator.abilities.add(new UnitSpawnAbility(bee, 60*25, -13, -16));
+            weapons.add(new Weapon("moredefences-transmitter"){{
+                top = true;
+                rotate = true;
+                mirror = false;
+                rotateSpeed = 6f;
+                x = 0f;
+                y = 8f;
+                reload = 9f;
+                inaccuracy = 2f;
+                recoil = 1.5;
+                xRand = 10f;
+                shoot.shots = 4;
+                shoot.shotDelay = 2f;
+                shootSound = Sounds.shootBig;
+
+                bullet = new BasicBulletType(8.5f, 18f){{ // speed, dmg
+                    lifetime = 60f;
+                    pierceCap = 4;
+                    pierceBuilding = true;
+                    keepVelocity = false;
+                    status = StatusEffects.burning;
+                    statusDuration = 400;
+                    width = 10f;
+                    height = 20f;
+                    frontColor = Color.valueOf("ffffff");
+                    backColor = Color.valueOf("ffaa00");
+                    makeFire = true;
+                }};
+            }});
+            weapons.add(new Weapon("moredefences-gatling-gun"){{
+                top = true;
+                rotate = true;
+                rotateSpeed = 6f;
+                x = 24f;
+                y = 15f;
+                reload = 30f;
+                alternate = true
+                inaccuracy = 1f;
+                shootSound = Sounds.missile;
+                shoot.shots = 3;
+                shoot.shotDelay = 5f;
+
+                bullet = new MissileBulletType(6.5f, 25f){{ // speed, dmg
+                    lifetime = 60f;
+                    width = 7f;
+                    height = 8f;
+                    splashDamage = 44f;
+                    splashDamageRadius = 12f;
+                    frontColor = Color.valueOf("bf92f9");
+                    backColor = Color.valueOf("6d56bf");
+                }};
+            }});
+            weapons.add(new Weapon("moredefences-gatling-gun"){{
+                top = true;
+                rotate = true;
+                rotateSpeed = 6f;
+                x = 38f;
+                y = -4f;
+                reload = 35f;
+                alternate = true
+                inaccuracy = 1f;
+                shootSound = Sounds.missile;
+                shoot.shots = 3;
+                shoot.shotDelay = 7f;
+
+                bullet = new MissileBulletType(7.25f, 30f){{ // speed, dmg
+                    lifetime = 60f;
+                    width = 7f;
+                    height = 8f;
+                    splashDamage = 50f;
+                    splashDamageRadius = 18f;
+                    frontColor = Color.valueOf("bf92f9");
+                    backColor = Color.valueOf("6d56bf");
                 }};
             }});
         }};
