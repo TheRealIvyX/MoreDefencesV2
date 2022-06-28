@@ -7,6 +7,7 @@ import arc.graphics.g2d.*;
 import arc.struct.*;
 import arc.struct.ObjectMap.*;
 import mindustry.content.*;
+import mindustry.entities.abilities.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.pattern.*;
 import mindustry.gen.*;
@@ -567,7 +568,7 @@ public class MDUnits{
                 y = -7f;
                 reload = 1f;
                 inaccuracy = 6f;
-                recoil = 2;
+                recoil = 2f;
 
                 bullet = new BasicBulletType(7.5f, 6f){{ // speed, dmg
                     lifetime = 20f;
@@ -645,7 +646,7 @@ public class MDUnits{
                 y = 8f;
                 reload = 9f;
                 inaccuracy = 2f;
-                recoil = 1.5;
+                recoil = 1.5f;
                 xRand = 10f;
                 shoot.shots = 4;
                 shoot.shotDelay = 2f;
