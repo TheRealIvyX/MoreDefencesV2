@@ -505,6 +505,7 @@ public class MDUnits{
                 reload = 120f;
                 ejectEffect = Fx.casing3Double;
                 inaccuracy = 2f;
+                shake = 1f;
                 shootSound = Sounds.artillery;
 
                 bullet = new ArtilleryBulletType(3f, 0f){{ // speed, dmg
@@ -516,6 +517,7 @@ public class MDUnits{
                     width = 22f;
                     height = 20f;
                     keepVelocity = false;
+                    hitShake = 1f;
                     fragBullets = 8;
                     fragBullet = new ArtilleryBulletType(6f, 0f){{ // speed, dmg
                         lifetime = 50f;
@@ -587,6 +589,7 @@ public class MDUnits{
                 inaccuracy = 1f;
                 alternate = true;
                 shootSound = Sounds.artillery;
+                shake = 5f;
 
                 bullet = new ArtilleryBulletType(7f, 0f){{ // speed, dmg
                     lifetime = 60f;
@@ -597,6 +600,7 @@ public class MDUnits{
                     splashDamageRadius = 27;
                     frontColor = Color.valueOf("bf92f9");
                     backColor = Color.valueOf("6d56bf");
+                    hitShake = 4f;
                     fragBullets = 24;
                     fragBullet = new ArtilleryBulletType(2f, 0f){{ // speed, dmg
                         lifetime = 30f;
@@ -607,6 +611,7 @@ public class MDUnits{
                         splashDamageRadius = 16;
                         frontColor = Color.valueOf("bf92f9");
                         backColor = Color.valueOf("6d56bf");
+                        hitShake = 2f;
                     }};
                 }};
             }});
