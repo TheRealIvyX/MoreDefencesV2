@@ -407,6 +407,7 @@ public class MDUnits{
                 }};
             }});
         }};
+        
         // swarmer unit line
         swarmer = new UnitType("swarmer-ship"){{
             health = 200f;
@@ -534,6 +535,78 @@ public class MDUnits{
                             trailColor = Color.valueOf("352378");
                             keepVelocity = false;
                         }};
+                    }};
+                }};
+            }});
+        }};
+        messenger = new UnitType("messenger-ship"){{
+            health = 8500f;
+            armor = 7f;
+            speed = 1f;
+            flying = true;
+            itemCapacity = 60;
+            range = 250f;
+            drag = 0.017f;
+            accel = 0.04f;
+            engineOffset = 7.5f;
+            lowAltitude = true;
+            rotateSpeed = 2f;
+            faceTarget = false;
+            constructor = UnitEntity::create;
+            targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, null};
+
+            weapons.add(new Weapon("moredefences-messenger-minigun"){{
+                top = true;
+                rotate = true;
+                mirror = false;
+                rotateSpeed = 4f;
+                x = 0f;
+                y = -7f;
+                reload = 1f;
+                inaccuracy = 6f;
+                recoil = 2;
+
+                bullet = new BasicBulletType(7.5f, 6f){{ // speed, dmg
+                    lifetime = 20f;
+                    pierceCap = 2;
+                    pierceBuilding = true;
+                    keepVelocity = false;
+                    status = StatusEffects.burning;
+                    statusDuration = 200;
+                    width = 9f;
+                    height = 12f;
+                    frontColor = Color.valueOf("ffffff");
+                    backColor = Color.valueOf("ffaa00");
+                }};
+            }});
+            weapons.add(new Weapon("moredefences-messenger-cannon"){{
+                top = true;
+                x = 16f;
+                y = -1f;
+                reload = 75f;
+                inaccuracy = 1f;
+                alternate = true;
+                shootSound = Sounds.artillery;
+
+                bullet = new ArtilleryBulletType(7f, 0f){{ // speed, dmg
+                    lifetime = 60f;
+                    keepVelocity = false;
+                    width = 19f;
+                    height = 17f;
+                    splashDamage = 102;
+                    splashDamageRadius = 27
+                    frontColor = Color.valueOf("bf92f9");
+                    backColor = Color.valueOf("6d56bf");
+                    fragBullets = 24;
+                    fragBullet = new ArtilleryBulletType(2f, 0f){{ // speed, dmg
+                        lifetime = 30f;
+                        keepVelocity = false;
+                        width = 12f;
+                        height = 13f;
+                        splashDamage = 16;
+                        splashDamageRadius = 16
+                        frontColor = Color.valueOf("bf92f9");
+                        backColor = Color.valueOf("6d56bf");
                     }};
                 }};
             }});
