@@ -421,6 +421,7 @@ public class MDUnits{
             accel = 0.075f;
             engineOffset = 6f;
             rotateSpeed = 5f;
+            createWreck = false;
             circleTarget = true;
             constructor = UnitEntity::create;
             targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, null};
@@ -493,6 +494,7 @@ public class MDUnits{
             accel = 0.2f;
             hitSize = 20f;
             engineOffset = 13.5f;
+            lowAltitude = true;
             rotateSpeed = 2f;
             targetAir = false;
             constructor = UnitEntity::create;
@@ -631,6 +633,7 @@ public class MDUnits{
             engineOffset = 7f;
             rotateSpeed = 1f;
             faceTarget = false;
+            lowAltitude = true;
             constructor = UnitEntity::create;
             targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, null};
 
