@@ -637,9 +637,9 @@ public class MDUnits{
             constructor = UnitEntity::create;
             targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, null};
 
-            communicator.abilities.add(new UnitSpawnAbility(hornet, (float)60*65, 0f, 26f));
-            communicator.abilities.add(new UnitSpawnAbility(bee, (float)60*25, 13f, -16f));
-            communicator.abilities.add(new UnitSpawnAbility(bee, (float)60*25, -13f, -16f));
+            communicator.abilities.add(new UnitSpawnAbility(MDUnits.hornet, (float)60*65, 0f, 26f));
+            communicator.abilities.add(new UnitSpawnAbility(MDUnits.bee, (float)60*25, 13f, -16f));
+            communicator.abilities.add(new UnitSpawnAbility(MDUnits.bee, (float)60*25, -13f, -16f));
             weapons.add(new Weapon("moredefences-transmitter"){{
                 top = true;
                 rotate = true;
