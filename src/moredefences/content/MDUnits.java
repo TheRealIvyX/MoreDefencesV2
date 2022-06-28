@@ -672,7 +672,7 @@ public class MDUnits{
                 x = 24f;
                 y = 15f;
                 reload = 30f;
-                alternate = true
+                alternate = true;
                 inaccuracy = 1f;
                 shootSound = Sounds.missile;
                 shoot.shots = 3;
@@ -695,7 +695,7 @@ public class MDUnits{
                 x = 38f;
                 y = -4f;
                 reload = 35f;
-                alternate = true
+                alternate = true;
                 inaccuracy = 1f;
                 shootSound = Sounds.missile;
                 shoot.shots = 3;
