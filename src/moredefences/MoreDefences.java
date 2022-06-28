@@ -56,6 +56,15 @@ public class MoreDefences extends Mod{
            addToReconstructor(Blocks.multiplicativeReconstructor, MDUnits.artilleryman, MDUnits.ordnance);
            addToReconstructor(Blocks.exponentialReconstructor, MDUnits.ordnance, MDUnits.mortar);
            addToReconstructor(Blocks.tetrativeReconstructor, MDUnits.mortar, MDUnits.howitzer);
+           // swarmer unit line
+           addToFabricator(
+              Blocks.airFactory,
+              new UnitFactory.UnitPlan(MDUnits.swarmer, (float) 20 * 60, with(Items.silicon, 20, Items.pyratite, 5, Items.titanium, 5))
+           );
+           addToReconstructor(Blocks.additiveReconstructor, MDUnits.swarmer, MDUnits.bee);
+           addToReconstructor(Blocks.multiplicativeReconstructor, MDUnits.bee, MDUnits.hornet);
+           addToReconstructor(Blocks.exponentialReconstructor, MDUnits.hornet, MDUnits.messenger);
+           addToReconstructor(Blocks.tetrativeReconstructor, MDUnits.messenger, MDUnits.communicator);
         });
     }
     
