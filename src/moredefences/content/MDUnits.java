@@ -553,7 +553,6 @@ public class MDUnits{
             engineOffset = 7.5f;
             lowAltitude = true;
             rotateSpeed = 2f;
-            faceTarget = false;
             constructor = UnitEntity::create;
             targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, null};
 
