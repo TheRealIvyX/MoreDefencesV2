@@ -502,7 +502,7 @@ public class MDUnits{
                 x = 0f;
                 y = -3f;
                 reload = 120f;
-                ejectEffect = Fx.casing3double;
+                ejectEffect = Fx.casing3Double;
                 inaccuracy = 2f;
                 shootSound = Sounds.artillery;
 
