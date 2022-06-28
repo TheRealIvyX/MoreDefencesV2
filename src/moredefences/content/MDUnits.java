@@ -545,7 +545,7 @@ public class MDUnits{
             health = 8500f;
             armor = 7f;
             speed = 1f;
-            hitSize = 55
+            hitSize = 55;
             flying = true;
             itemCapacity = 60;
             range = 250f;
