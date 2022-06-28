@@ -479,5 +479,64 @@ public class MDUnits{
                 }};
             }});
         }};
+        hornet = new UnitType("hornet-ship"){{
+            health = 1000f;
+            armor = 7f;
+            speed = 2f;
+            flying = true;
+            itemCapacity = 25;
+            range = 240f;
+            drag = 0.01f;
+            accel = 0.2f;
+            hitSize = 20f;
+            engineOffset = 13.5f;
+            rotateSpeed = 2f;
+            targetAir = false;
+            constructor = UnitEntity::create;
+            targetFlags = new BlockFlag[]{BlockFlag.turret, BlockFlag.battery, null};
+
+            weapons.add(new Weapon("moredefences-hornet-cannon"){{
+                top = true;
+                rotate = true;
+                mirror = false;
+                x = 0f;
+                y = -3f;
+                reload = 120f;
+                ejectEffect = Fx.casing3double;
+                inaccuracy = 2f;
+                shootSound = Sounds.artillery;
+
+                bullet = new ArtilleryBulletType(3f, 0f){{ // speed, dmg
+                    lifetime = 80f;
+                    splashDamage = 66f;
+                    splashDamageRadius = 33;
+                    frontColor = Color.valueOf("bf92f9");
+                    backColor = Color.valueOf("6d56bf");
+                    width = 22f;
+                    height = 20f;
+                    keepVelocity = false;
+                    fragBullets = 8;
+                    fragBullet = new ArtilleryBulletType(6f, 0f){{ // speed, dmg
+                        lifetime = 50f;
+                        splashDamage = 22f;
+                        splashDamageRadius = 15;
+                        frontColor = Color.valueOf("bf92f9");
+                        backColor = Color.valueOf("6d56bf");
+                        width = 14f;
+                        height = 15f;
+                        keepVelocity = false;
+                        fragBullets = 3;
+                        fragBullet = new MissileBulletType(1f, 4f){{ // speed, dmg
+                            splashDamage = 13f;
+                            splashDamageRadius = 10;
+                            frontColor = Color.valueOf("bf92f9");
+                            backColor = Color.valueOf("6d56bf");
+                            trailColor = Color.valueOf("352378");
+                            keepVelocity = false;
+                        }};
+                    }};
+                }};
+            }});
+        }};
     }
 }
