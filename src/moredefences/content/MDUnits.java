@@ -594,7 +594,7 @@ public class MDUnits{
                     width = 19f;
                     height = 17f;
                     splashDamage = 102;
-                    splashDamageRadius = 27
+                    splashDamageRadius = 27;
                     frontColor = Color.valueOf("bf92f9");
                     backColor = Color.valueOf("6d56bf");
                     fragBullets = 24;
@@ -604,7 +604,7 @@ public class MDUnits{
                         width = 12f;
                         height = 13f;
                         splashDamage = 16;
-                        splashDamageRadius = 16
+                        splashDamageRadius = 16;
                         frontColor = Color.valueOf("bf92f9");
                         backColor = Color.valueOf("6d56bf");
                     }};
