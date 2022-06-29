@@ -82,7 +82,9 @@ public class MDUnits{
     // cannoneer unit line
     cannoneer, artilleryman, ordnance, mortar, howitzer,
     // swarmer unit line
-    swarmer, bee, hornet, messenger, communicator;
+    swarmer, bee, hornet, messenger, communicator,
+    // bombardier unit line
+    bombardier, pelter, showerer, avalanche, tundra;
 
     public static void load(){
         //setupID();
@@ -436,6 +438,7 @@ public class MDUnits{
                     width = 0f;
                     height = 0f;
                     hitEffect = Fx.pulverize;
+                    shootEffect = Fx.none;
                     lifetime = 10f;
                     status = StatusEffects.burning;
                     splashDamageRadius = 50;
@@ -714,6 +717,47 @@ public class MDUnits{
                     splashDamageRadius = 18f;
                     frontColor = Color.valueOf("bf92f9");
                     backColor = Color.valueOf("6d56bf");
+                }};
+            }});
+        }};
+        
+        // bombardier unit line
+        bombardier = new UnitType("bombardier-ship"){{
+            health = 135f;
+            speed = 2f;
+            flying = true;
+            itemCapacity = 20;
+            range = 140f;
+            drag = 0.01f;
+            accel = 0.08f;
+            faceTarget = false;
+            circleTarget = true;
+            constructor = UnitEntity::create;
+            targetFlags = new BlockFlag[]{BlockFlag.generator, BlockFlag.turret, null};
+
+            weapons.add(new Weapon(){{
+                reload = 24f;
+                ejectEffect = Fx.none;
+                shootSound = Sounds.none;
+                x = 2f;
+                y = 0f;
+                shootY = 0f;
+                shoot.shots = 3;
+                shoot.shotDelay = 2f;
+                velocityRnd = 1f;
+                minShootVelocity = 0.75f;
+                shootCone = 180f;
+
+                bullet = new BombBulletType(0.7f, 0f){{ // speed, dmg
+                    width = 5f;
+                    height = 7f;
+                    hitEffect = Fx.flakExplosion;
+                    shootEffect = Fx.none;
+                    smokeEffect = Fx.none;
+                    status = StatusEffects.blasted;
+                    splashDamage = 9;
+                    splashDamageRadius = 30;
+                    rangeOverride = 140;
                 }};
             }});
         }};
