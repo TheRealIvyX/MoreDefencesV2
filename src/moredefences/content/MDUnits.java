@@ -769,6 +769,7 @@ public class MDUnits{
             flying = true;
             itemCapacity = 30;
             range = 140f;
+            hitSize = 14f;
             drag = 0.02f;
             accel = 0.08f;
             engineOffset = 9f;
@@ -791,7 +792,7 @@ public class MDUnits{
                 inaccuracy = 15f;
 
                 bullet = new BombBulletType(0.7f, 0f){{ // speed, dmg
-                    width = 12f;
+                    width = 9f;
                     height = 12f;
                     hitEffect = Fx.flakExplosion;
                     shootEffect = Fx.none;
@@ -824,6 +825,62 @@ public class MDUnits{
                     lifetime = 20f;
                     pierceArmor = true;
                     collidesTiles = false;
+                }};
+            }});
+        }};
+        showerer = new UnitType("showerer-ship"){{
+            health = 800f;
+            speed = 1.4f;
+            flying = true;
+            itemCapacity = 50;
+            range = 140f;
+            hitSize = 14f;
+            drag = 0.03f;
+            accel = 0.08f;
+            engineOffset = 10f;
+            engineSize = 3.25f;
+            circleTarget = true;
+            targetAir = false;
+            faceTarget = false;
+            constructor = UnitEntity::create;
+            targetFlags = new BlockFlag[]{BlockFlag.generator, BlockFlag.turret, null};
+
+            weapons.add(new Weapon(){{
+                reload = 15f;
+                ejectEffect = Fx.none;
+                shootSound = Sounds.none;
+                x = 0f;
+                y = 0f;
+                mirror = false;
+                shootY = 0f;
+                velocityRnd = 1f;
+                minShootVelocity = 0.75f;
+                shootCone = 180f;
+                inaccuracy = 15f;
+
+                bullet = new BombBulletType(0.7f, 0f){{ // speed, dmg
+                    width = 12f;
+                    height = 16f;
+                    hitEffect = Fx.flakExplosion;
+                    shootEffect = Fx.none;
+                    smokeEffect = Fx.none;
+                    status = StatusEffects.blasted;
+                    splashDamage = 50;
+                    splashDamageRadius = 60;
+                    rangeOverride = 140;
+                    fragBullets = 17;
+                    fragLifeMin = 0f;
+                    fragVelocityMin = 0.8f;
+                    fragBullet = new BombBulletType(6f, 0f){{ // speed, dmg
+                        width = 5f;
+                        height = 7f;
+                        hitEffect = Fx.flakExplosion;
+                        shootEffect = Fx.none;
+                        smokeEffect = Fx.none;
+                        splashDamage = 9f;
+                        splashDamageRange = 30f;
+                        status = StatusEffects.blasted;
+                    }};
                 }};
             }});
         }};
