@@ -732,6 +732,7 @@ public class MDUnits{
             accel = 0.08f;
             faceTarget = false;
             circleTarget = true;
+            targetAir = false;
             constructor = UnitEntity::create;
             targetFlags = new BlockFlag[]{BlockFlag.generator, BlockFlag.turret, null};
 
@@ -747,6 +748,7 @@ public class MDUnits{
                 velocityRnd = 1f;
                 minShootVelocity = 0.75f;
                 shootCone = 180f;
+                inaccuracy = 15f;
 
                 bullet = new BombBulletType(0.7f, 0f){{ // speed, dmg
                     width = 5f;
@@ -761,5 +763,54 @@ public class MDUnits{
                 }};
             }});
         }};
+        /*pelter = new UnitType("pelter-ship"){{ // unfinished
+            health = 435f;
+            speed = 1.7f;
+            flying = true;
+            itemCapacity = 30;
+            range = 140f;
+            drag = 0.02f;
+            accel = 0.08f;
+            engineOffset = 9f;
+            engineSize = 4f;
+            circleTarget = true;
+            // physics = false;
+            constructor = UnitEntity::create;
+            targetFlags = new BlockFlag[]{BlockFlag.generator, BlockFlag.turret, null};
+
+            weapons.add(new Weapon(){{
+                reload = 24f;
+                ejectEffect = Fx.none;
+                shootSound = Sounds.none;
+                x = 2f;
+                y = 0f;
+                shootY = 0f;
+                velocityRnd = 1f;
+                minShootVelocity = 0.75f;
+                shootCone = 180f;
+                inaccuracy = 15f;
+
+                bullet = new BombBulletType(0.7f, 0f){{ // speed, dmg
+                    width = 7.5f;
+                    height = 10.5f;
+                    hitEffect = Fx.flakExplosion;
+                    shootEffect = Fx.none;
+                    smokeEffect = Fx.none;
+                    status = StatusEffects.blasted;
+                    splashDamage = 40;
+                    splashDamageRadius = 45;
+                    rangeOverride = 140;
+                    fragBullets = 30;
+                    fragBullet = new LiquidBulletType(Liquids.oil){{ // liquid
+                        damage = 1.2f; // maybe change liquid to slag?
+                        status = StatusEffects.tarred;
+                        lifetime = 240f;
+                        pierce = true;
+                        pierceBuildings = true;
+                        drag = 0.075f;
+                    }};
+                }};
+            }});
+        }};*/
     }
 }
