@@ -763,7 +763,7 @@ public class MDUnits{
                 }};
             }});
         }};
-        /*pelter = new UnitType("pelter-ship"){{ // unfinished
+        pelter = new UnitType("pelter-ship"){{ // unfinished
             health = 435f;
             speed = 1.7f;
             flying = true;
@@ -791,8 +791,8 @@ public class MDUnits{
                 inaccuracy = 15f;
 
                 bullet = new BombBulletType(0.7f, 0f){{ // speed, dmg
-                    width = 7.5f;
-                    height = 10.5f;
+                    width = 12f;
+                    height = 12f;
                     hitEffect = Fx.flakExplosion;
                     shootEffect = Fx.none;
                     smokeEffect = Fx.none;
@@ -800,17 +800,33 @@ public class MDUnits{
                     splashDamage = 40;
                     splashDamageRadius = 45;
                     rangeOverride = 140;
-                    fragBullets = 30;
+                    fragBullets = 8;
                     fragBullet = new LiquidBulletType(Liquids.oil){{ // liquid
-                        damage = 1.2f; // maybe change liquid to slag?
+                        damage = 4f;
                         status = StatusEffects.tarred;
-                        lifetime = 240f;
+                        lifetime = 480f;
                         pierce = true;
                         pierceBuildings = true;
                         drag = 0.075f;
                     }};
                 }};
             }});
-        }};*/
+            weapons.add(new Weapon("moredefences-pelter-gun"){{
+                top = true;
+                rotate = true;
+                mirror = true;
+                x = 2.8f;
+                y = 7f;
+                reload = 6f;
+                alternate = true;
+                inaccuracy = 2f;
+
+                bullet = new BasicBulletType(6f, 6f){{ // speed, dmg
+                    lifetime = 20f;
+                    pierceArmor = true;
+                    collidesTiles = false;
+                }};
+            }});
+        }};
     }
 }
