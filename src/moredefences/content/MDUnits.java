@@ -763,7 +763,7 @@ public class MDUnits{
                 }};
             }});
         }};
-        pelter = new UnitType("pelter-ship"){{ // unfinished
+        pelter = new UnitType("pelter-ship"){{
             health = 435f;
             speed = 1.7f;
             flying = true;
