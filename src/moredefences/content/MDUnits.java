@@ -764,7 +764,7 @@ public class MDUnits{
             }});
         }};
         pelter = new UnitType("pelter-ship"){{
-            health = 435f; // test
+            health = 435f;
             speed = 1.7f;
             flying = true;
             itemCapacity = 30;
