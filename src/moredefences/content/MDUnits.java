@@ -878,7 +878,7 @@ public class MDUnits{
                         shootEffect = Fx.none;
                         smokeEffect = Fx.none;
                         splashDamage = 9f;
-                        splashDamageRange = 30f;
+                        splashDamageRadius = 30f;
                         status = StatusEffects.blasted;
                     }};
                 }};
