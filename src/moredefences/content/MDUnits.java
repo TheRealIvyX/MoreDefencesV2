@@ -813,7 +813,6 @@ public class MDUnits{
             }});
             weapons.add(new Weapon("moredefences-pelter-gun"){{
                 top = true;
-                rotate = true;
                 mirror = true;
                 x = 2.8f;
                 y = 7f;
