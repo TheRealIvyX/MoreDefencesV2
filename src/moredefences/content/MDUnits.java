@@ -871,7 +871,7 @@ public class MDUnits{
                     fragBullets = 17;
                     fragLifeMin = 0.5f;
                     fragLifeMax = 2f;
-                    fragBullet = new BombBulletType(6f, 0f){{ // speed, dmg
+                    fragBullet = new BombBulletType(12f, 0f){{ // speed, dmg
                         width = 5f;
                         height = 7f;
                         hitEffect = Fx.flakExplosion;
