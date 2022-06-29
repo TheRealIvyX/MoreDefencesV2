@@ -806,7 +806,7 @@ public class MDUnits{
                         status = StatusEffects.tarred;
                         lifetime = 480f;
                         pierce = true;
-                        pierceBuildings = true;
+                        pierceBuilding = true;
                         drag = 0.075f;
                     }};
                 }};
