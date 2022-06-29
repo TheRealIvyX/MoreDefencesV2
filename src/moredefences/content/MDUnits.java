@@ -846,7 +846,7 @@ public class MDUnits{
             targetFlags = new BlockFlag[]{BlockFlag.generator, BlockFlag.turret, null};
 
             weapons.add(new Weapon(){{
-                reload = 15f;
+                reload = 30f;
                 ejectEffect = Fx.none;
                 shootSound = Sounds.none;
                 x = 0f;
@@ -869,8 +869,8 @@ public class MDUnits{
                     splashDamageRadius = 60;
                     rangeOverride = 140;
                     fragBullets = 17;
-                    fragLifeMin = 0f;
-                    fragVelocityMin = 0.8f;
+                    fragLifeMin = 0.5f;
+                    fragLifeMax = 2f;
                     fragBullet = new BombBulletType(6f, 0f){{ // speed, dmg
                         width = 5f;
                         height = 7f;
