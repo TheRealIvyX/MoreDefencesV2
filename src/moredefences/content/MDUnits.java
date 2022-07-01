@@ -1005,6 +1005,7 @@ public class MDUnits{
             weapons.add(new Weapon("moredefences-avalanche-weapon"){{
                 top = true;
                 mirror = true;
+                rotate = true;
                 x = 5f;
                 y = 5f;
                 reload = 10f;
@@ -1025,6 +1026,7 @@ public class MDUnits{
             weapons.add(new Weapon("moredefences-avalanche-weapon"){{
                 top = true;
                 mirror = true;
+                rotate = true;
                 x = 5f;
                 y = -5f;
                 reload = 33f;
