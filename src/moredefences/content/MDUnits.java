@@ -884,5 +884,61 @@ public class MDUnits{
                 }};
             }});
         }};
+        /*avalanche = new UnitType("avalanche-ship"){{ // unfinished
+            health = 4000f;
+            armor = 5f;
+            speed = 1f;
+            flying = true;
+            itemCapacity = 90;
+            range = 288f;
+            hitSize = 34f;
+            drag = 0.01f;
+            accel = 0.1f;
+            engineOffset = 11f;
+            engineSize = 6f;
+            circleTarget = true;
+            faceTarget = false;
+            constructor = UnitEntity::create;
+            targetFlags = new BlockFlag[]{BlockFlag.generator, BlockFlag.turret, null};
+
+            weapons.add(new Weapon(){{
+                reload = 30f;
+                ejectEffect = Fx.none;
+                shootSound = Sounds.none;
+                x = 0f;
+                y = 0f;
+                mirror = false;
+                shootY = 0f;
+                velocityRnd = 1f;
+                minShootVelocity = 0.75f;
+                shootCone = 180f;
+                inaccuracy = 15f;
+
+                bullet = new BombBulletType(0.7f, 0f){{ // speed, dmg
+                    width = 12f;
+                    height = 16f;
+                    hitEffect = Fx.flakExplosion;
+                    shootEffect = Fx.none;
+                    smokeEffect = Fx.none;
+                    status = StatusEffects.blasted;
+                    splashDamage = 50;
+                    splashDamageRadius = 60;
+                    rangeOverride = 140;
+                    fragBullets = 17;
+                    fragLifeMin = 0.5f;
+                    fragLifeMax = 2f;
+                    fragBullet = new BombBulletType(12f, 0f){{ // speed, dmg
+                        width = 5f;
+                        height = 7f;
+                        hitEffect = Fx.flakExplosion;
+                        shootEffect = Fx.none;
+                        smokeEffect = Fx.none;
+                        splashDamage = 9f;
+                        splashDamageRadius = 30f;
+                        status = StatusEffects.blasted;
+                    }};
+                }};
+            }});
+        }};*/
     }
 }
