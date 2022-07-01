@@ -4,6 +4,9 @@ import arc.*;
 import arc.func.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
+import arc.math.*;
+import arc.math.geom.*;
+import arc.util.*;
 import arc.struct.*;
 import arc.struct.ObjectMap.*;
 import mindustry.content.*;
@@ -13,7 +16,14 @@ import mindustry.entities.pattern.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
+import mindustry.world.*;
 import mindustry.world.meta.*;
+
+import static arc.graphics.g2d.Draw.rect;
+import static arc.graphics.g2d.Draw.*;
+import static arc.graphics.g2d.Lines.*;
+import static arc.math.Angles.*;
+import static mindustry.Vars.*;
 
 @SuppressWarnings("unchecked")
 public class MDUnits{
@@ -904,7 +914,7 @@ public class MDUnits{
             weapons.add(new Weapon(){{
                 reload = 120f;
                 ejectEffect = Fx.none;
-                shootSound = Sounds.plasmaDrop;
+                shootSound = Sounds.plasmadrop;
                 x = 0f;
                 y = 0f;
                 mirror = false;
@@ -983,7 +993,7 @@ public class MDUnits{
                         status = StatusEffects.freezing;
                         keepVelocity = false;
                         hitShake = 2f;
-                        collide = false;
+                        collides = false;
                         hitEffect = Fx.flakExplosion;
                         despawnEffect = Fx.shockwave;
                         splashDamage = 75f;
