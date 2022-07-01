@@ -884,7 +884,7 @@ public class MDUnits{
                 }};
             }});
         }};
-        /*avalanche = new UnitType("avalanche-ship"){{ // unfinished
+        avalanche = new UnitType("avalanche-ship"){{
             health = 4000f;
             armor = 5f;
             speed = 1f;
@@ -902,43 +902,135 @@ public class MDUnits{
             targetFlags = new BlockFlag[]{BlockFlag.generator, BlockFlag.turret, null};
 
             weapons.add(new Weapon(){{
-                reload = 30f;
+                reload = 120f;
                 ejectEffect = Fx.none;
-                shootSound = Sounds.none;
+                shootSound = Sounds.plasmaDrop;
                 x = 0f;
                 y = 0f;
                 mirror = false;
                 shootY = 0f;
                 velocityRnd = 1f;
-                minShootVelocity = 0.75f;
+                minShootVelocity = 0.25f;
                 shootCone = 180f;
                 inaccuracy = 15f;
 
-                bullet = new BombBulletType(0.7f, 0f){{ // speed, dmg
-                    width = 12f;
-                    height = 16f;
-                    hitEffect = Fx.flakExplosion;
-                    shootEffect = Fx.none;
-                    smokeEffect = Fx.none;
-                    status = StatusEffects.blasted;
-                    splashDamage = 50;
-                    splashDamageRadius = 60;
-                    rangeOverride = 140;
-                    fragBullets = 17;
-                    fragLifeMin = 0.5f;
-                    fragLifeMax = 2f;
-                    fragBullet = new BombBulletType(12f, 0f){{ // speed, dmg
-                        width = 5f;
-                        height = 7f;
+                bullet = new BasicBulletType(4f, 0f){{ // speed, dmg
+                    sprite = "moredefences-i-bomb"; // i literally just copy and pasted the code for quad's bomb here and modified it lmao
+                    width = height = 30f;
+
+                    rangeOverride = 280f;
+                    ignoreRotation = true;
+
+                    backColor = Color.valueOf("#6ecdec");
+                    frontColor = Color.valueOf("#ffffff");
+
+                    hitSound = Sounds.plasmaboom;
+
+                    shootCone = 180f;
+                    ejectEffect = Fx.none;
+                    hitShake = 5f;
+
+                    collidesAir = false;
+
+                    lifetime = 70f;
+
+                    despawnEffect = new Effect(40f, 100f, e -> {
+                        color(Color.valueOf("#6ecdec"));
+                        stroke(e.fout() * 2f);
+                        float circleRad = 4f + e.finpow() * 96f;
+                        Lines.circle(e.x, e.y, circleRad);
+                        
+                        color(Color.valueOf("#6ecdec"));
+                        for(int i = 0; i < 3; i++){
+                            Drawf.tri(e.x, e.y, 6f, 70f * e.fout(), (i*120)-90);
+                        }
+                        for(int i = 0; i < 3; i++){
+                            Drawf.tri(e.x, e.y, 6f, 45f * e.fout(), (i*120)+90);
+                        }
+                        
+                        color();
+                        for(int i = 0; i < 3; i++){
+                            Drawf.tri(e.x, e.y, 6f, 25f * e.fout(), (i*120)-90);
+                        }
+                        for(int i = 0; i < 3; i++){
+                            Drawf.tri(e.x, e.y, 6f, 12.5f * e.fout(), (i*120)+90);
+                        }
+                        
+                        Drawf.light(e.x, e.y, circleRad * 1.6f, Color.valueOf("#6ecdec"), e.fout());
+                    });
+                    hitEffect = Fx.massiveExplosion;
+                    keepVelocity = false;
+                    spin = 4f;
+                    drag = 4f;
+
+                    shrinkX = shrinkY = 0.7f;
+
+                    collides = false;
+
+                    splashDamage = 175f;
+                    splashDamageRadius = 100f;
+                    status = StatusEffects.freezing;
+                    statusDuration = 360f;
+                    
+                    fragBullets = 2;
+                    fragBullet = new ArtilleryBulletType(2f, 0f){{ // speed, dmg
+                        sprite = "moredefences-d-bomb";
+                        width = 10f;
+                        height = 10f;
+                        frontColor = Color.valueOf("#ffffff");
+                        backColor = Color.valueOf("#6ecdec");
+                        spin = 6f;
+                        status = StatusEffects.freezing;
+                        keepVelocity = false;
+                        hitShake = 2f;
+                        collide = false;
                         hitEffect = Fx.flakExplosion;
-                        shootEffect = Fx.none;
-                        smokeEffect = Fx.none;
-                        splashDamage = 9f;
-                        splashDamageRadius = 30f;
-                        status = StatusEffects.blasted;
+                        despawnEffect = Fx.shockwave;
+                        splashDamage = 75f;
+                        splashDamageRadius = 24f;
                     }};
                 }};
             }});
-        }};*/
+            weapons.add(new Weapon("moredefences-avalanche-weapon"){{
+                top = true;
+                mirror = true;
+                x = 5f;
+                y = 5f;
+                reload = 10f;
+                alternate = true;
+                inaccuracy = 2f;
+
+                bullet = new BasicBulletType(8f, 15f){{ // speed, dmg
+                    width = 7f;
+                    height = 9f;
+                    frontColor = Color.valueOf("#6ecdec");
+                    backColor = Color.valueOf("#5091a6");
+                    lifetime = 32f;
+                    status = StatusEffects.freezing;
+                    keepVelocity = false;
+                    buildingDamageMultiplier = 0.35f;
+                }};
+            }});
+            weapons.add(new Weapon("moredefences-avalanche-weapon"){{
+                top = true;
+                mirror = true;
+                x = 5f;
+                y = -5f;
+                reload = 33f;
+                alternate = true;
+                inaccuracy = 2f;
+
+                bullet = new BasicBulletType(10f, 20f){{ // speed, dmg
+                    width = 7f;
+                    height = 9f;
+                    frontColor = Color.valueOf("#6ecdec");
+                    backColor = Color.valueOf("#5091a6");
+                    lifetime = 30f;
+                    status = StatusEffects.freezing;
+                    keepVelocity = false;
+                    buildingDamageMultiplier = 0.35f;
+                }};
+            }});
+        }};
     }
 }
