@@ -22,6 +22,7 @@ import static arc.Core.*;
 import static mindustry.Vars.*;
 import static mindustry.type.ItemStack.with;
 
+import moredefences.content.audio.*;
 import moredefences.content.items.*;
 import moredefences.content.bullets.*;
 import moredefences.content.units.*;
