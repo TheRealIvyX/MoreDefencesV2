@@ -79,6 +79,7 @@ public class MoreDefences extends Mod{
 
     @Override
     public void loadContent(){
+        MDSounds.load();
         //MDStatuses.load();
         //MDLiquids.load();
         MDItems.load();
