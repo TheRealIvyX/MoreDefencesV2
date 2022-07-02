@@ -8,7 +8,7 @@ import mindustry.*;
 
 import static mindustry.Vars.*;
 
-// code "borrowed" from progression ministry
+// code "borrowed" from progression ministry. i removed the prog mats loadsound function and used the vanilla one but im keeping the credits here anyways just in case
 /**
  * @author GlennFolker
  * For how to make this. Just copy over and adjust the code.
@@ -25,15 +25,4 @@ public class MDSounds{
         iceBreak = Vars.tree.loadSound("icebreak");
         iceHit = Vars.tree.loadSound("icehit");
     }
-    /*protected static Sound loadSound(String soundName){
-        String name = "sounds/" + soundName;
-        String path = Vars.tree.get(name + ".ogg").exists() ? name + ".ogg" : name + ".mp3";
-
-        Sound sound = new Sound();
-
-        AssetDescriptor<?> desc = Core.assets.load(path, Sound.class, new SoundParameter(sound));
-        desc.errored = Throwable::printStackTrace;
-
-        return sound;
-    }*/
 }
