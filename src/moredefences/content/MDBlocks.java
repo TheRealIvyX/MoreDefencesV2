@@ -25,6 +25,7 @@ import mindustry.world.blocks.storage.*;
 import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 
+import moredefences.content.audio.*;
 import moredefences.content.bullets.*;
 import moredefences.content.items.*;
 
@@ -43,7 +44,10 @@ public class MDBlocks{
     // production - drills
     coalExtractor, farmer, frigid, largeWext, nickelExtractor, thoriumExtractor,
     // production - crafters
-    filter, ionizer, sifter, sterilizer, tinRefurbish;
+    filter, ionizer, sifter, sterilizer, tinRefurbish,
+    
+    // special
+    frozenwall, frozenwallBig;
 
     public static void load(){
         multishot = new ItemTurret("multishot"){{
@@ -559,5 +563,17 @@ public class MDBlocks{
             
             outputItem = new ItemStack(MDItems.aluminum, 1);
         }};
+        // special
+        /*frozenwall = new Block("frozen-wall"){{ // unfinished
+            requirements(Category.defense);
+            health = 25;
+            placeOverlapRange = -1f;
+            rebuildable = false;
+            createRubble = false;
+            destructible = true;
+            solid = true;
+            drawTeamOverlay = false;
+            destroySound = Sounds.none;
+        }};*/
     }
 }
