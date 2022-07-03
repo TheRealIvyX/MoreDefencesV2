@@ -14,6 +14,7 @@ import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.blocks.production.*;
+import mindustry.world.blocks.defense.*;
 import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
 
