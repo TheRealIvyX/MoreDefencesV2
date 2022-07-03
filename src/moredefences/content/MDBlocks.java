@@ -29,6 +29,8 @@ import moredefences.content.audio.*;
 import moredefences.content.bullets.*;
 import moredefences.content.items.*;
 
+import mindustry.world.blocks.defense.*;
+
 // import moredefences.world.blocks.production.*;
 import moredefences.world.draw.*;
 
@@ -564,16 +566,9 @@ public class MDBlocks{
             outputItem = new ItemStack(MDItems.aluminum, 1);
         }};
         // special
-        /*frozenwall = new Block("frozen-wall"){{ // unfinished
+        frozenwall = new FrozenWall("frozen-wall"){{ // special block created by units
             requirements(Category.defense);
             health = 25;
-            placeOverlapRange = -1f;
-            rebuildable = false;
-            createRubble = false;
-            destructible = true;
-            solid = true;
-            drawTeamOverlay = false;
-            destroySound = Sounds.none;
-        }};*/
+        }};
     }
 }
