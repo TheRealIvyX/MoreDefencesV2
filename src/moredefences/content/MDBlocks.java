@@ -567,7 +567,7 @@ public class MDBlocks{
         }};
         // special
         frozenwall = new FrozenWall("frozen-wall"){{ // special block created by units
-            requirements(Category.defense);
+            requirements(Category.defense, BuildVisibility.hidden, empty);
             health = 25;
         }};
     }
