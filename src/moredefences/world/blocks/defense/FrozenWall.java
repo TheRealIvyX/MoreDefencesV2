@@ -32,13 +32,13 @@ public class FrozenWall extends Wall{ // special block created by units
     public class FrozenWallBuild extends WallBuild{
         @Override
         public float handleDamage(float amount){
-            if (health - amount > 0) MDSounds.icehit.at(x, y, Mathf.random(0.9,1.1))
+            if (health - amount > 0) MDSounds.icehit.at(x, y, Mathf.random(0.9,1.1));
             return amount;
         }
         @Override
         public void afterDestroyed(){
             super.afterDestroyed();
-            MDSounds.icebreak.at(x, y, Mathf.random(0.9,1.1))
+            MDSounds.icebreak.at(x, y, Mathf.random(0.9,1.1));
         }
     }
 }
