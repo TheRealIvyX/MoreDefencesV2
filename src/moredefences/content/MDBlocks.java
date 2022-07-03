@@ -570,5 +570,10 @@ public class MDBlocks{
             requirements(Category.defense, BuildVisibility.hidden, empty);
             health = 25;
         }};
+        frozenwallBig = new FrozenWall("frozen-wall-large"){{ // special block created by units
+            requirements(Category.defense, BuildVisibility.hidden, empty);
+            health = 100;
+            size = 2;
+        }};
     }
 }
