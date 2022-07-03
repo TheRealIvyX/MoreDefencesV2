@@ -29,7 +29,7 @@ import moredefences.content.audio.*;
 import moredefences.content.bullets.*;
 import moredefences.content.items.*;
 
-import mindustry.world.blocks.defense.*;
+import moredefences.world.blocks.defense.*;
 
 // import moredefences.world.blocks.production.*;
 import moredefences.world.draw.*;
