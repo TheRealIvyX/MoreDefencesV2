@@ -1165,7 +1165,7 @@ public class MDUnits{
                     }};
                     
                     @Override
-                    public despawned(Bullet b){
+                    public void despawned(Bullet b;);{
                         super.despawned(b);
                         Units.nearbyBuildings(b.x, b.y, 150f, cons(other -> {
                             if (other.team != b.owner.team) {
