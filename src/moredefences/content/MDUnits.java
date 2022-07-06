@@ -20,6 +20,8 @@ import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.meta.*;
 
+import moredefences.content.blocks.*;
+
 import static arc.graphics.g2d.Draw.rect;
 import static arc.graphics.g2d.Draw.*;
 import static arc.graphics.g2d.Lines.*;
@@ -1042,6 +1044,169 @@ public class MDUnits{
                     status = StatusEffects.freezing;
                     keepVelocity = false;
                     buildingDamageMultiplier = 0.35f;
+                }};
+            }});
+        }};
+        tundra = new UnitType("tundra-ship"){{
+            health = 20000f;
+            armor = 10f;
+            speed = 0.75f;
+            flying = true;
+            itemCapacity = 230;
+            range = 600f;
+            hitSize = 80f;
+            drag = 0.01f;
+            accel = 0.1f;
+            rotateSpeed = 0.75f;
+            engineOffset = 11f;
+            engineSize = 6.5f;
+            circleTarget = true;
+            faceTarget = false;
+            constructor = UnitEntity::create;
+            targetFlags = new BlockFlag[]{BlockFlag.generator, BlockFlag.turret, null};
+
+            weapons.add(new Weapon(){{
+                reload = 120f;
+                ejectEffect = Fx.none;
+                shootSound = Sounds.plasmadrop;
+                x = 0f;
+                y = 0f;
+                mirror = false;
+                shootY = 0f;
+                velocityRnd = 1f;
+                minShootVelocity = 0.25f;
+                shootCone = 180f;
+                inaccuracy = 15f;
+
+                bullet = new BasicBulletType(4f, 0f){{ // speed, dmg
+                    sprite = "moredefences-plus-bomb"; // i literally just copy and pasted the code for quad's bomb here and modified it lmao
+                    width = height = 30f;
+
+                    rangeOverride = 150f;
+                    ignoreRotation = true;
+
+                    backColor = Color.valueOf("#6ecdec");
+                    frontColor = Color.valueOf("#ffffff");
+
+                    hitSound = Sounds.plasmaboom;
+
+                    shootCone = 180f;
+                    ejectEffect = Fx.none;
+                    hitShake = 9f;
+
+                    collidesAir = false;
+
+                    lifetime = 140f;
+                    hittable = false;
+
+                    despawnEffect = MultiEffect(
+                        new Effect(40f, 100f, e -> {
+                            color(Color.valueOf("#6ecdec"));
+                            stroke(e.fout() * 2f);
+                            float circleRad = 4f + e.finpow() * 146f;
+                            Lines.circle(e.x, e.y, circleRad);
+                            
+                            color(Color.valueOf("#6ecdec"));
+                            for(int i = 0; i < 5; i++){
+                                Drawf.tri(e.x, e.y, 6f, 70f * e.fout(), (i*72)-90);
+                            }
+                            for(int i = 0; i < 5; i++){
+                                Drawf.tri(e.x, e.y, 6f, 45f * e.fout(), (i*72)+90);
+                            }
+                            
+                            color();
+                            for(int i = 0; i < 5; i++){
+                                Drawf.tri(e.x, e.y, 6f, 25f * e.fout(), (i*72)-90);
+                            }
+                            for(int i = 0; i < 5; i++){
+                                Drawf.tri(e.x, e.y, 6f, 12.5f * e.fout(), (i*72)+90);
+                            }
+                            
+                            Drawf.light(e.x, e.y, circleRad * 1.6f, Color.valueOf("#6ecdec"), e.fout());
+                        }),
+                        new Effect(500f, 30f, e -> {
+                            randLenVectors(e.id, 30, (Math.min(Interp.pow3Out.apply(e.fin()*3), 1)) * 180, (x, y) => {
+                                Draw.color(Color.valueOf("#ffffff"));
+                                Draw.alpha(0.6);
+                                Fill.circle(e.x + x, e.y + y, e.fout() * 28);
+                            })
+                        })
+                    );
+                    hitEffect = Fx.massiveExplosion;
+                    keepVelocity = false;
+                    spin = 2f;
+                    drag = 4f;
+
+                    shrinkX = shrinkY = 0.45f;
+
+                    collides = false;
+
+                    splashDamage = 400f;
+                    splashDamageRadius = 150f;
+                    status = StatusEffects.freezing;
+                    statusDuration = 720f;
+                    
+                    fragBullets = 10;
+                    fragBullet = new ArtilleryBulletType(2f, 0f){{ // speed, dmg
+                        sprite = "moredefences-d-bomb";
+                        width = 10f;
+                        height = 10f;
+                        frontColor = Color.valueOf("#ffffff");
+                        backColor = Color.valueOf("#6ecdec");
+                        spin = 6f;
+                        status = StatusEffects.freezing;
+                        keepVelocity = false;
+                        hitShake = 2f;
+                        collides = false;
+                        hitEffect = Fx.flakExplosion;
+                        despawnEffect = Fx.shockwave;
+                        splashDamage = 45f;
+                        splashDamageRadius = 24f;
+                    }};
+                    
+                    @Override
+                    public void despawned(Bullet b){
+                        super.despawned(b);
+                        Units.nearbyBuildings(b.x, b.y, 150, cons(other => {
+                            if (other.team != b.owner.team) {
+                                Rand().setSeed(b.id+other.id+b.owner.id+other.x+other.y+b.x+b.y+b.owner.x+b.owner.y);
+                                Tile t = Vars.world.tile(Mathf.round(other.x / 8), Mathf.round(other.y / 8));
+                                Block o = t.block();
+                                if ((o.size == 1 || o.size == 2) && Rand().random(0,1) <= 0.2) {
+                                    t.setAir();
+                                    if (o.size == 1) {
+                                        t.setBlock(MDBlocks.frozenwall, b.owner.team);
+                                    } else {
+                                        t.setBlock(MDBlocks.frozenwalllarge, b.owner.team);
+                                    }
+                                }
+                            }
+                        }));
+                    }
+                }};
+            }});
+            weapons.add(new Weapon("moredefences-railgun-cannon"){{
+                top = true;
+                mirror = false;
+                rotate = true;
+                x = 0f;
+                y = 2f;
+                reload = 100f;
+                alternate = true;
+                inaccuracy = 0f;
+                shootSound = Sounds.bigshot;
+
+                bullet = new BasicBulletType(15f, 400f){{ // speed, dmg
+                    width = 8f;
+                    height = 20f;
+                    hitSound = Sounds.explosionbig;
+                    frontColor = Color.valueOf("#ffffff");
+                    backColor = Color.valueOf("#00aaff");
+                    lifetime = 35f;
+                    status = StatusEffects.disarmed;
+                    statusDuration = 60f;
+                    splashDamage = 350f;
+                    splashDamageRadius = 8f;
                 }};
             }});
         }};
