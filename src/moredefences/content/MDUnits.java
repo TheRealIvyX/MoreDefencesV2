@@ -11,6 +11,7 @@ import arc.struct.*;
 import arc.struct.ObjectMap.*;
 import mindustry.content.*;
 import mindustry.entities.*;
+import mindustry.entities.effect.*;
 import mindustry.entities.abilities.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.pattern.*;
@@ -1125,7 +1126,7 @@ public class MDUnits{
                             Drawf.light(e.x, e.y, circleRad * 1.6f, Color.valueOf("#6ecdec"), e.fout());
                         }),
                         new Effect(500f, 30f, e -> {
-                            randLenVectors(e.id, 30f, (Math.min(Interp.pow3Out.apply(e.fin()*3f), 1f)) * 180, (x, y) -> {
+                            randLenVectors(e.id, 30, (Math.min(Interp.pow3Out.apply(e.fin()*3f), 1f)) * 180, (x, y) -> {
                                 Draw.color(Color.valueOf("#ffffff"));
                                 Draw.alpha(0.6f);
                                 Fill.circle(e.x + x, e.y + y, e.fout() * 28);
