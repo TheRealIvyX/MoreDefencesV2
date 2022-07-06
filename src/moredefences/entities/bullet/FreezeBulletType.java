@@ -2,9 +2,6 @@ package moredefences.entities.bullet;
 
 import arc.graphics.*;
 import arc.graphics.g2d.*;
-import arc.graphics.g2d.Draw.rect;
-import arc.graphics.g2d.Draw.*;
-import arc.graphics.g2d.Lines.*;
 import arc.math.Angles.*;
 import arc.math.*;
 import arc.util.*;
@@ -16,7 +13,6 @@ import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.world.*;
 import mindustry.Vars.*;
-import mindustry.Vars.world.*;
 
 import moredefences.content.blocks.*;
 
