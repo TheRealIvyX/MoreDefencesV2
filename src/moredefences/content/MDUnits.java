@@ -1129,7 +1129,7 @@ public class MDUnits{
                                 Draw.color(Color.valueOf("#ffffff"));
                                 Draw.alpha(0.6f);
                                 Fill.circle(e.x + x, e.y + y, e.fout() * 28);
-                            })
+                            });
                         })
                     );
                     hitEffect = Fx.massiveExplosion;
