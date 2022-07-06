@@ -2,6 +2,10 @@ package moredefences.entities.bullet;
 
 import arc.graphics.*;
 import arc.graphics.g2d.*;
+import arc.graphics.g2d.Draw.rect;
+import arc.graphics.g2d.Draw.*;
+import arc.graphics.g2d.Lines.*;
+import arc.math.Angles.*;
 import arc.math.*;
 import arc.util.*;
 import arc.util.io.*;
@@ -11,14 +15,11 @@ import mindustry.entities.bullet.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.world.*;
+import mindustry.Vars.*;
+import mindustry.Vars.world.*;
 
 import moredefences.content.blocks.*;
 
-import static arc.graphics.g2d.Draw.rect;
-import static arc.graphics.g2d.Draw.*;
-import static arc.graphics.g2d.Lines.*;
-import static arc.math.Angles.*;
-import static mindustry.Vars.*;
 
 public class FreezeBulletType extends BasicBulletType {
     public float freezeChance = 0.2f;
