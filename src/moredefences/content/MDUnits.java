@@ -1167,7 +1167,7 @@ public class MDUnits{
                     @Override
                     public void despawned(Bullet b){
                         super.despawned(b);
-                        Units.nearbyBuildings(b.x, b.y, 150, cons(other => {
+                        Units.nearbyBuildings(b.x, b.y, 150f, cons(other -> {
                             if (other.team != b.owner.team) {
                                 Rand().setSeed(b.id+other.id+b.owner.id+other.x+other.y+b.x+b.y+b.owner.x+b.owner.y);
                                 Tile t = Vars.world.tile(Mathf.round(other.x / 8), Mathf.round(other.y / 8));
