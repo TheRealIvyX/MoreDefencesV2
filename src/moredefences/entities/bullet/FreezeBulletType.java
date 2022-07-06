@@ -36,9 +36,9 @@ public class FreezeBulletType extends BasicBulletType {
         if (freezeRadius > 0) {
             Units.nearbyBuildings(b.x, b.y, freezeRadius, cons(other -> {
                 if (other.team != b.owner.team) {
-                    Rand().setSeed(b.id+other.id+b.owner.id+other.x+other.y+b.x+b.y+b.owner.x+b.owner.y);
+                    Rand().setSeed(b.id+other.id+other.x+other.y+b.x+b.y);
                     Tile t = Vars.world.tile(Mathf.round(other.x / 8), Mathf.round(other.y / 8));
-                    Building o = t.block();
+                    Block o = t.block();
                     if ((o.size >= 1 && o.size <= Math.min(2, Math.max(1, maxTargetSize))) && Rand().random(0,1) <= freezeChance) {
                         t.setAir();
                         if (o.size == 1) {
