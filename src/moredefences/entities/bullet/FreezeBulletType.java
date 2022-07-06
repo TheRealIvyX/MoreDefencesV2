@@ -41,7 +41,7 @@ public class FreezeBulletType extends BasicBulletType {
                         if (o.size == 1) {
                             t.setBlock(MDBlocks.frozenwall, b.owner.team);
                         } else {
-                            t.setBlock(MDBlocks.frozenwalllarge, b.owner.team);
+                            t.setBlock(MDBlocks.frozenwallBig, b.owner.team);
                         }
                     }
                 }
