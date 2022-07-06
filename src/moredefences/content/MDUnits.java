@@ -1172,7 +1172,7 @@ public class MDUnits{
                                 Rand().setSeed(b.id+other.id+b.owner.id+other.x+other.y+b.x+b.y+b.owner.x+b.owner.y);
                                 Tile t = Vars.world.tile(Mathf.round(other.x / 8), Mathf.round(other.y / 8));
                                 Block o = t.block();
-                                if ((o.size == 1 || o.size == 2) && Rand().random(0,1) <= 0.2) {
+                                if ((o.size == 1 || o.size == 2) && Rand().random(0,1) <= 0.2f) {
                                     t.setAir();
                                     if (o.size == 1) {
                                         t.setBlock(MDBlocks.frozenwall, b.owner.team);
