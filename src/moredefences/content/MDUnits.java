@@ -1101,7 +1101,7 @@ public class MDUnits{
                     hittable = false;
 
                     despawnEffect = MultiEffect(
-                        new Effect(40f, 100f, e -> {
+                        Effect tundraBomb1 = new Effect(40f, 100f, e -> {
                             color(Color.valueOf("#6ecdec"));
                             stroke(e.fout() * 2f);
                             float circleRad = 4f + e.finpow() * 146f;
@@ -1125,7 +1125,7 @@ public class MDUnits{
                             
                             Drawf.light(e.x, e.y, circleRad * 1.6f, Color.valueOf("#6ecdec"), e.fout());
                         }),
-                        new Effect(500f, 30f, e -> {
+                        Effect tundraBomb2 = new Effect(500f, 30f, e -> {
                             randLenVectors(e.id, 30, (Math.min(Interp.pow3Out.apply(e.fin()*3f), 1f)) * 180, (x, y) -> {
                                 Draw.color(Color.valueOf("#ffffff"));
                                 Draw.alpha(0.6f);
