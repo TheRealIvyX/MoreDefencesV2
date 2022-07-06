@@ -20,7 +20,7 @@ import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.meta.*;
 
-import moredefences.content.blocks.*;
+import moredefences.entities.bullet.*;
 
 import static arc.graphics.g2d.Draw.rect;
 import static arc.graphics.g2d.Draw.*;
@@ -1078,7 +1078,7 @@ public class MDUnits{
                 shootCone = 180f;
                 inaccuracy = 15f;
 
-                bullet = new BasicBulletType(4f, 0f){{ // speed, dmg
+                bullet = new FreezeBulletType(4f, 0f){{ // speed, dmg
                     sprite = "moredefences-plus-bomb"; // i literally just copy and pasted the code for quad's bomb here and modified it lmao
                     width = height = 30f;
 
@@ -1163,26 +1163,6 @@ public class MDUnits{
                         splashDamage = 45f;
                         splashDamageRadius = 24f;
                     }};
-                    
-                    @Override
-                    public void despawned(Bullet b){
-                        super.despawned(b);
-                        Units.nearbyBuildings(b.x, b.y, 150f, cons(other -> {
-                            if (other.team != b.owner.team) {
-                                Rand().setSeed(b.id+other.id+b.owner.id+other.x+other.y+b.x+b.y+b.owner.x+b.owner.y);
-                                Tile t = Vars.world.tile(Mathf.round(other.x / 8), Mathf.round(other.y / 8));
-                                Block o = t.block();
-                                if ((o.size == 1 || o.size == 2) && Rand().random(0,1) <= 0.2f) {
-                                    t.setAir();
-                                    if (o.size == 1) {
-                                        t.setBlock(MDBlocks.frozenwall, b.owner.team);
-                                    } else {
-                                        t.setBlock(MDBlocks.frozenwalllarge, b.owner.team);
-                                    }
-                                }
-                            }
-                        }));
-                    }
                 }};
             }});
             weapons.add(new Weapon("moredefences-railgun-cannon"){{
