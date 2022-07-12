@@ -22,6 +22,7 @@ import mindustry.world.*;
 import mindustry.world.meta.*;
 
 import moredefences.entities.bullet.*;
+import moredefences.content.vfx.*;
 
 import static arc.graphics.g2d.Draw.rect;
 import static arc.graphics.g2d.Draw.*;
@@ -1101,37 +1102,7 @@ public class MDUnits{
                     hittable = false;
 
                     despawnEffect = MultiEffect(
-                        new Effect(40f, 100f, e -> {
-                            color(Color.valueOf("#6ecdec"));
-                            stroke(e.fout() * 2f);
-                            float circleRad = 4f + e.finpow() * 146f;
-                            Lines.circle(e.x, e.y, circleRad);
-                            
-                            color(Color.valueOf("#6ecdec"));
-                            for(int i = 0; i < 5; i++){
-                                Drawf.tri(e.x, e.y, 6f, 70f * e.fout(), (i*72)-90);
-                            }
-                            for(int i = 0; i < 5; i++){
-                                Drawf.tri(e.x, e.y, 6f, 45f * e.fout(), (i*72)+90);
-                            }
-                            
-                            color();
-                            for(int i = 0; i < 5; i++){
-                                Drawf.tri(e.x, e.y, 6f, 25f * e.fout(), (i*72)-90);
-                            }
-                            for(int i = 0; i < 5; i++){
-                                Drawf.tri(e.x, e.y, 6f, 12.5f * e.fout(), (i*72)+90);
-                            }
-                            
-                            Drawf.light(e.x, e.y, circleRad * 1.6f, Color.valueOf("#6ecdec"), e.fout());
-                        }),
-                        new Effect(500f, 30f, e -> {
-                            randLenVectors(e.id, 30, (Math.min(Interp.pow3Out.apply(e.fin()*3f), 1f)) * 180, (x, y) -> {
-                                Draw.color(Color.valueOf("#ffffff"));
-                                Draw.alpha(0.6f);
-                                Fill.circle(e.x + x, e.y + y, e.fout() * 28);
-                            });
-                        })
+                        MDFx.tundraBomb1, MDFx.tundraBomb2
                     );
                     hitEffect = Fx.massiveExplosion;
                     keepVelocity = false;
