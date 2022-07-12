@@ -12,7 +12,7 @@ import mindustry.entities.bullet.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.world.*;
-import mindustry.Vars.*;
+import mindustry.Vars;
 
 import moredefences.content.blocks.*;
 
@@ -34,7 +34,7 @@ public class FreezeBulletType extends BasicBulletType {
             Units.nearbyBuildings(b.x, b.y, freezeRadius, cons(other -> {
                 if (other.team != b.owner.team) {
                     Rand().setSeed(b.id+other.id+other.x+other.y+b.x+b.y);
-                    Tile t = world.tile(Mathf.round(other.x / 8), Mathf.round(other.y / 8));
+                    Tile t = Vars.world.tile(Mathf.round(other.x / 8), Mathf.round(other.y / 8));
                     Block o = t.block();
                     if ((o.size >= 1 && o.size <= Math.min(2, Math.max(1, maxTargetSize))) && Rand().random(0,1) <= freezeChance) {
                         t.setAir();
